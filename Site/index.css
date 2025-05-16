@@ -8,6 +8,10 @@
 
 }
 
+.img{
+
+    align-self: auto;
+}
 
 .nav {
 
@@ -81,8 +85,6 @@ align-items: center;
 .container{
 
     text-align: center;
-
-
 }
 
 h1{
@@ -94,6 +96,7 @@ h1{
    
 }
 
+
 p{
     font-family: "Open Sans", sans-serif;
     font-size: 36px;
@@ -101,28 +104,65 @@ p{
     
 }
 
-.container .texto{
+.texto .container{
 
  text-align: center;
  margin-top: 10%;
  color: black;
  font-size: 50px;
- margin-bottom: 0%;
- background-color: violet;
+ margin-bottom: 5%;
 
+ 
 }
+
+.texto{
+
+    background-image: url('../Site/Assets/sobreposição.png');
+    margin-bottom: 5%;
+}
+ 
 
 .container_body h2 {
 
     text-align: center;
     margin-top: 15%;
     font-size: 50px;
+    padding: auto;
 
 }
 
 .container_body  {
 
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
     size: 500px;
+}
+
+.b.projeto{
+
+    size: 50vh;
+    margin-top: 10%;
+    margin-bottom: 0%;
+}
+
+.sobre img {
+
+    text-align: center;
+    margin-left: 3%;
+
+}
+
+.sobre p{
+
+    text-align: center;
+    margin-bottom: 5%;
+    font-size: 25px;
+}
+
+.sobre {
+
+    display: flex;
+    flex-direction: row;
+    margin-top: 50%;
+    align-items: center;
 }
