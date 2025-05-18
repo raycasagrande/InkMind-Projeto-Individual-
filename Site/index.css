@@ -270,6 +270,7 @@ a{
 /* Início da tela Projeto */
 
 .container_projeto {
+
     display: flex;
     flex-direction: row;   /* deixa os filhos na horizontal */
     align-items: center;   /* alinha verticalmente no centro */
@@ -279,6 +280,23 @@ a{
     max-width: 1200px;
     margin: 0 auto;        /* centraliza horizontalmente */
     flex-wrap: wrap;       /* para ficar responsivo no mobile */
+    position: relative;
+    z-index: 1;
+}
+
+.container_projeto::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(Assets/Livros\ ao\ Vento\ em\ Estilo\ Vintage.png);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
 }
 
 .texto_projeto {
@@ -299,7 +317,7 @@ a{
 }
 
 .imagem_projeto {
-    flex: 1 1 45%;         /* mesma largura do texto */
+    flex: 1 1 45%;  /* mesma largura do texto */
     display: flex;
     justify-content: center;  /* centraliza a imagem no container */
     align-items: center;
@@ -312,6 +330,34 @@ a{
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra leve */
 }
 
+.linha_gradiente_icone2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.linha_gradiente_icone2::before,
+.linha_gradiente_icone2::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #965c59);
+  max-width: 250px;
+}
+
+.linha_gradiente_icone2::after {
+  background: linear-gradient(to left, transparent, #965c59);
+}
+
+.linha_gradiente_icone2 span {
+  margin: 0 15px;
+  font-size: 18px;
+  color: #965c59;
+  font-weight: bold;
+}
+
+
 /* Início da tela de sobre */
 
 .container_quem {
@@ -321,6 +367,22 @@ a{
   align-items: center;
   padding: 60px 10%;
   gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.container_quem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Assets/Livros\ ao\ Vento\ em\ Estilo\ Vintage.png'); /* caminho da imagem */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 .cont_quem_esq {
@@ -340,7 +402,7 @@ a{
 }
 
 .img_esq {
-  max-width: 400px;
+  max-width: 200px;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
