@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+    <script src="assets/js/cadastro.js"></script>
+</head>
+
+<body id="body" translate="no">
+    <div class="container">
+
+        <div class="sidebar">
+
+
+            <a href="index.html" class="seta-retorno" title="Voltar">
+
+                &#8592;
+            </a>
+            <div class="conteudo">
+
+                <div class="inkmind">
+                   
+                    <p>Cadastro</p>
+                </div>
+                <div class="formulario texto">
+
+                    <p id="p_nome">Nome Completo:</p>
+                    <input type="text" id="input_nome" placeholder="Rayssa Casagrande">
+                    <p id="erro_nome" class="erro hidden">Preencha seu nome completo</p>
+
+                    <p id="p_email">E-mail:</p>
+                    <input type="text" id="input_email" placeholder="rayssa.souza@sptech.com">
+                    <p id="erro_nome" class="erro hidden">Preencha seu e-mail</p>
+
+                    <p id="p_celular">Informe seu número:</p>
+                    <input type="tel" class="hidden" id="input_telefone" placeholder="********">
+                    <p id="erro_telefone" class="erro hidden"></p>
+
+                    
+                    <p class="hidden" id="p_senha">Defina uma senha:</p>
+                    <input type="password" class="hidden" id="input_senha" placeholder="********">
+                    <p id="erro_senha" class="erro hidden">Preencha a senha</p>
+
+                    <p class="hidden" id="p_confirmacao">Confirme sua senha:</p>
+                    <input type="password" class="hidden" id="input_confirmacao" placeholder="********">
+                    <p id="erro_confirmacao" class="erro hidden">Confirme sua senha</p>
+
+                    <script type="text/javascript">
+                    $("#input_telefone").mask("(00) 00000-0000");
+                    </script>
+
+
+                </div>
+                <button onclick="proximosCampos()" class="botao" id="button_continuar">Continuar</button>
+
+                <button class="hidden botao" onclick="cadastrar()" id="button_logar">Cadastrar</button>
+            </div>
+        </div>
+    <div id="mensagem" class="mensagem hidden"></div>
+</body>
+
+</html>
