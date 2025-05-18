@@ -1,168 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Italianno&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Italianno&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 * {
-
-    margin: 0px;
-    font-family: "Italianno", cursive;
-    background-color: bisque;
-
+    margin: 0;
+    padding: 0;
 }
 
-.img{
+body {
 
-    align-self: auto;
-}
-
-.nav {
-
-    font-family: "Italianno", cursive;
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+    flex-direction: column;
     display: flex;
-    justify-content: space-between;
-    height: 60%;
-    align-items:center;
-    border-radius: 30px;
-    font-size: 30px;
-    width: 50%;
-    flex-direction: row;
-    padding-left: 0%;
-    margin: auto;
-
 }
 
+/* Inicio da home */
 
-a{
-
-text-decoration: none;
-color: #332920;
-align-items: center;
-
-}
-
-.navegar {
-    
-    font-family: "Italianno", cursive;
-    display: flex;
-    flex-direction: left;
-    gap: 20px;
-    list-style: none;
-    /*margin-right: 50%;*/
-    margin-block-end: 0%;
-   
-    
-}
-
-.entrar {
-    
-     font-family: "Italianno", cursive;
-     display: flex;
-     flex-direction: right;
-     gap: 20px;
-     list-style: none;
-   
-
-}
-
-.nav li a:hover{/* muda de cor ao passar o mouse por cima */
-    
-    color: #965c29;
-    display: flex;
-
-}
-
-.bar {
-    margin-right: 20%;
-    color: #965c29;
-}
-
-.container .nav{
-
-    margin-left: 350px;
-    margin-top: 15px;
-   
-    
-}
-
-.container{
-
-    text-align: center;
-}
-
-h1{
-   font-family: "Italianno", cursive;
-   font-size: 150px;
-   font-weight: 100;
-   padding-bottom: 0px;
-   align-items: baseline;
-   
-}
-
-
-p{
-    font-family: "Open Sans", sans-serif;
-    font-size: 36px;
-    margin-bottom: 0%;
-    
-}
-
-.texto .container{
-
- text-align: center;
- margin-top: 10%;
- color: black;
- font-size: 50px;
- margin-bottom: 5%;
-
- 
-}
-
-.texto{
-
-    background-image: url('../Site/Assets/sobreposição.png');
-    margin-bottom: 5%;
-}
- 
-
-.container_body h2 {
-
-    text-align: center;
-    margin-top: 15%;
-    font-size: 50px;
-    padding: auto;
-
-}
-
-.container_body  {
-
-    font-size: 15px;
-    text-align: center;
-    size: 500px;
-}
-
-.b.projeto{
-
-    size: 50vh;
-    margin-top: 10%;
-    margin-bottom: 0%;
-}
-
-.sobre img {
-
-    text-align: center;
-    margin-left: 3%;
-
-}
-
-.sobre p{
-
-    text-align: center;
-    margin-bottom: 5%;
-    font-size: 25px;
-}
-
-.sobre {
+.container_menu {
 
     display: flex;
     flex-direction: row;
-    margin-top: 50%;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.nav_menu a{
+
+    margin: 0px 30px;
+}
+
+.a_menu {
+    text-decoration: none;
+    margin-top: 5%;
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-size: 20px;
+    color: #332920;
+}
+
+.btn_login {
+
+    width: 86px;
+    height: 50px;
+    
 }
