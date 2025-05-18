@@ -4,6 +4,13 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -13,6 +20,7 @@ body {
     overflow-y: auto;
     flex-direction: column;
     display: flex;
+    background-color: antiquewhite;
 }
 
 /* Inicio da home */
@@ -21,23 +29,58 @@ body {
 
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     width: 100%;
-    height: 100%;
+    padding: 20px 0;
+    /* position: relative; */
 }
 
 .img_mancha {
-    width: 300%;      /* Ajuste conforme necessário */
-    height: 150%;    /* Mantém proporção */
-    position: relative;
+    width: 101vw;      /* Ajuste conforme necessário */
+    height: 100%;
+    object-fit: cover;    /* Mantém proporção */
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1;
+   
 }
 
+.nav_menu {
 
-.nav_menu a{
+    background: transparent;
+    border: none;
+    color: black;
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 30px;
+    transition: color 0.3s ease;
 
-    margin: 0px 30px;
+}
+
+.nav_menu a {
+
+    background: transparent;
+    border: none;
+    color:black;
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 30px;
+    transition: color 0.3s ease;
+}
+
+.nav_menu a:hover {
+
+    color: #965c59;            /* cor quando passa o mouse */
+    text-decoration: underline
 }
 
 .a_menu {
@@ -45,26 +88,24 @@ body {
     margin-top: 5%;
     font-family: "Italianno", cursive;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 30px;
     color: #332920;
 }
 
 .btn_login {
-
-    width: 86px;
-    height: 50px;
-    margin-top: 2.3%;
-    margin-left: 1%;
-    background-color: white;
-    border-bottom-left-radius: 10px;
+    
+    background: transparent;
+    border: none;
+    color:black;
     font-family: "Italianno", cursive;
-    font-size: 15px;
     font-weight: 400;
-    border: #965c59;
+    font-size: 30px;
     cursor: pointer;
-    color:#965c59;
-    transition: background-color 0.5s ease;
-
+    padding: 0;
+    margin-left: 30px;
+    transition: color 0.3s ease;
+    margin-left: 60px;
+    margin-right: 10px;
 }
 
 a{
@@ -73,28 +114,34 @@ a{
 
 .btn_signin {
 
-    width: 86px;
-    height: 50px;
-    margin-top: 2.3%;
-    margin-left: 0.5%;
-    background-color: transparent;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background: transparent;
+    border: none;
+    color: black;
     font-family: "Italianno", cursive;
-    font-size: 15px;
     font-weight: 400;
-    border: 1px solid #87502F;
-    color: #87502F;
-    cursor:pointer;
-    transition: background-color 0.5s ease;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 30px;
+    transition: color 0.3s ease;
+    margin-left: 10px;
+}
+
+.btn_login:hover, .btn_signin:hover {
+
+    color: #965c59;          /* cor de hover parecida */
+    text-decoration: underline;
 }
 
 .div_container_home {
 
-    width: 100%;
+    width: 100vw;
     height: 85vh;
     display: flex;
     flex-direction: row;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
 .container_textos {
@@ -143,38 +190,158 @@ a{
 }
 
 .div_central {
-
+    
+    position: relative;
+    width: 100vw;
+    height: 85vh;
     display: flex;
-    flex-direction: column;
     align-items:center;
-    justify-self: center;
-    height: 538px;
-    width: 39%;
-    margin-top: 2%;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0%;
+    margin: 0%;
+}
+
+.texto_centralizado {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
 }
 
 .span_text {
 
-    position: absolute;
     font-family: "Italianno", cursive;
-    font-size: 64px;
-    font-weight: 700;
-    margin-top: 10%;
-   /* -webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: black; */
-    color: white;
-    opacity: 70%;  
+    font-size: 180px;
+    font-weight: 500;
+    color: black;
+    /* opacity: 0.7; */
+    display: block;
 }
 
 .black_span_text {
 
-     position: absolute;
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 64px;
-    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
     margin-top: 10%;
-   -webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: #5ED549;
     color: black;
-    opacity: 70%;
+    /* opacity: 0.7; */
+    display: block;
+    margin-top: 0px;
+}
+
+.span_text, .black_span_text {
+
+    line-height: 1.0;
+}
+
+.linha_gradiente_icone1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.linha_gradiente_icone1::before,
+.linha_gradiente_icone1::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #965c59);
+  max-width: 250px;
+}
+
+.linha_gradiente_icone1::after {
+  background: linear-gradient(to left, transparent, #965c59);
+}
+
+.linha_gradiente_icone1 span {
+  margin: 0 15px;
+  font-size: 18px;
+  color: #965c59;
+  font-weight: bold;
+}
+
+
+/* Início da tela Projeto */
+
+.container_projeto {
+    display: flex;
+    flex-direction: row;   /* deixa os filhos na horizontal */
+    align-items: center;   /* alinha verticalmente no centro */
+    justify-content: center;
+    gap: 40px;             /* espaço entre texto e imagem */
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;        /* centraliza horizontalmente */
+    flex-wrap: wrap;       /* para ficar responsivo no mobile */
+}
+
+.texto_projeto {
+    flex: 1 1 45%;         /* ocupa cerca de 45% do espaço, cresce e encolhe */
+    font-family: 'Open Sans', sans-serif;
+    color: #332920;
+}
+
+.texto_projeto h2 {
+    font-family: 'Italianno', cursive;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.texto_projeto p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.imagem_projeto {
+    flex: 1 1 45%;         /* mesma largura do texto */
+    display: flex;
+    justify-content: center;  /* centraliza a imagem no container */
+    align-items: center;
+}
+
+.imagem_projeto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;  /* opcional, para bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra leve */
+}
+
+/* Início da tela de sobre */
+
+.container_quem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 10%;
+  gap: 40px;
+}
+
+.cont_quem_esq {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.span_text_quem {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #332920;
+  max-width: 500px;
+}
+
+.img_esq {
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
 }

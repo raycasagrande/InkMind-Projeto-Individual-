@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Site/index.css">
     <link rel="shortcut icon" href="assets/imgs/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>InkMind</title>
 </head>
+
 <body id="body" translate="no">
 
     <div class="container_menu">
@@ -17,90 +21,77 @@
         <nav class="nav_menu" id="menu">
 
             <a href="#body" id="link_menu_1" class="a_menu">Home</a>
-            <a href="#container_proj" id="link_menu_2"class="a_menu">Projeto</a>
+            <a href="#container_proj" id="link_menu_2" class="a_menu">Projeto</a>
             <a href="#container_quem" id="link_menu_3" class="a_menu">Sobre</a>
 
 
         </nav>
 
-        <button  id="btn_log" class="btn_login" onclick="login()">Login</button>
+        <button id="btn_log" class="btn_login" onclick="login()">Login</button>
 
         <button id="btn_cad" class="btn_signin" onclick="cadastro()">Cadastro</button>
 
 
     </div>
 
-      <div class="div_container_home">
+    <div class="div_container_home">
 
-        <div class="container_textos">
-
-            <div class="div_textos_1"> 
-                
-                <span id="span_div" class="span_div">InkMind</span>
-
-                </div>
-
-                <div class="div_textos_2">
-
-                    <span id="span_div_2" class="span_div_2">Histórias que conectam histórias</span>
-            
-                </div>
-                
-               </div>
-    
         <div class="div_central">
-    
-            <span class="span_text" id="span_seed">InkMind</span>
-    
-            <img src="Assets/sobreposição.png" class="img_mancha" >
-    
+
+            <img src="Assets/sobreposição.png" class="img_mancha">
+
+            <div class="texto_centralizado">
+                <span class="span_text" id="span_seed">InkMind</span>
+                <span class="black_span_text" id="span_div_2">Histórias que conectam histórias</span>
+            </div>
         </div>
 
     </div>
-   
+
+    <div class="linha_gradiente_icone1">
+        <span>🕮</span>
+    </div>
 
     <!-- Segunda Página - Projeto -->
-    
-     <div class="container_projeto" id="container_proj">
 
-        <div class="container_1">
+    <div class="container_projeto" id="container_proj">
 
-            <a href="#body" class="div_text_projeto_1" id="div_text_projeto_1">Projeto</a>
+        <!-- Texto do projeto -->
+        <div class="texto_projeto">
 
-            <span class="div_text_projeto_2" id="div_text_projeto_2">Inspirado em experiências pessoais, InkMind surge para gerar novas histórias através de histórias já contadas. É entregar ao leitor e ao usuário a chance de ressignificar suas vivências e conhecer outras pessoas que enxerguem o mundo com a mesma ótica que ele. InkMind é pensar como nas páginas dos livros. Independente das páginas anteriores, as novas guardam coisas extraordinárias!</span>
-
-             <div class="div_img_proj"> </div>
-
+            <h2>Projeto</h2>
+            <p>
+                Inspirado em experiências pessoais, InkMind surge para gerar novas histórias através de histórias já
+                contadas. É entregar ao leitor e ao usuário a chance de ressignificar suas vivências e conhecer
+                outras pessoas que enxerguem o mundo com a mesma ótica que ele. InkMind é pensar como nas páginas
+                dos livros. Independente das páginas anteriores, as novas guardam coisas extraordinárias!
+            </p>
         </div>
 
-        <div class="container_2">
-               
-                <div class="img_livros_proj"></div>
-
-                
-            </div> 
-            
+        <!-- Imagem do projeto -->
+        <div class="imagem_projeto">
+            <img src="Assets/Mapa Literário Antigo e Vintage.png" alt="Imagem do projeto">
         </div>
- </div>
+
+    </div>
+    </div>
+    </div>
 
     <!-- Inicío da programação da seção Quem Somos -->
-
     <div class="container_quem" id="container_quem">
-
         <div class="cont_quem_esq">
+            <span class="span_text_quem" id="span_text_quem">
+                Meu nome é Rayssa Casagrande, nascida em São Paulo, capital...
+            </span>
+            <img src="Assets/sobre.webp" alt="Sobre" class="img_esq" id="img_esq">
+        </div>
+    </div>
 
-            <img src="Assets/sobre.webp" alt="" id='img_esq' class="img_esq">
-
-            <span class="span_text_quem" id="span_text_quem">Meu nome é Rayssa Casagrande, nascida em São Paulo, capital e tenho 25 anos. Minha relação com a leitura vem desde cedo, já que iniciei as leituras aos 8 anos de idade. Desde então ela têm sido minha grande aliada em momentos difíceis, me possibilitando ressignificar a vida e seus momentos da melhor forma possível.</span>
-            
-          </div>
-
-            </div>
-       </div>
- </div>
+    </div>
 
     <div class="div_footer">Desenvolvido por Rayssa Casagrande ©2025</div>
 
     <script src="assets/js/index.js"></script>
 </body>
+
 </html>
