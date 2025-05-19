@@ -7,7 +7,7 @@
 
   <title>Feed</title>
 
-  <link rel="stylesheet" href="../css/feed.css">
+  <link rel="stylesheet" href="../public/css/feed.css">
 
 </head>
 
@@ -17,7 +17,9 @@
 
   <div class="container">
     <aside class="sidebar">
+      <a href="">
       <div class="user-icon"></div>
+      </a>
       <div class="user-name">@ray.casagrande</div>
       <nav class="menu">
         <a href="#">Página Inicial</a>
@@ -29,16 +31,32 @@
       </nav>
     </aside>
     <main class="main-content">
-      <div class="top-bar">
+     
+<main class="main-content">
+  <div class="top-bar">
+    <h1 class="brand">InkMind</h1>
+    <input type="text" class="search-bar" placeholder="Buscar...">
+  </div>
+
+  <!-- Campo de novo comentário/publicação -->
+  <div class="new-post-box">
+    <input class="new-post-input" type="text" placeholder="Compartilhe algo literário...">
+    <button class="publish-btn">Publicar</button>
+  </div>
+  
+  <div class="feed">
+    <!-- posts continuam aqui -->
+
+      <!-- <div class="top-bar">
 
         <h1>InkMind</h1>
-        <input type="text" class="search-bar" placeholder="Buscar...">
+        <input type="text" class="search-bar" placeholder="Buscar..."> -->
       </div>
       <div class="feed">
         <div class="post">
           <div class="post-header">
             <div class="post-header">
-              <img class="avatar" src="../Assets/icon2 (1).jpg" alt="Avatar">
+              <img class="avatar" src="../public/assets/icon/icon2 (1).jpg" alt="Avatar">
               <span class="username">@book.girl</span>
             </div>
 
@@ -64,7 +82,7 @@
         <div class="post">
           <div class="post-header">
             <div class="post-header">
-              <img class="avatar" src="../Assets/icon2 (2).jpg" alt="Avatar">
+              <img class="avatar" src="../public/assets/icon/icon2 (2).jpg" alt="Avatar">
               <span class="username">@lara.walton</span>
             </div>
 
