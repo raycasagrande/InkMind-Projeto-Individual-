@@ -7,7 +7,7 @@
 
 body{
     font-family:"Italianno", cursive;
-    background-image: url('../assets/imgs/Livros.png'); 
+    background-image: url('/assets/imgs/Livros.png'); 
     background-size: cover;        /* cobre toda a tela */
     background-repeat: no-repeat;  
     background-position: center; 
@@ -21,7 +21,7 @@ body{
     display: flex;
     justify-content: center;
     background-color: antiquewhite;
-    background-image: url(../assets/imgs/Livros.png)
+    background-image: url(/assets/imgs/Livros.png)
 
 }
 
