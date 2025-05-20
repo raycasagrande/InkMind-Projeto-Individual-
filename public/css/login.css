@@ -21,7 +21,7 @@ body{
     display: flex;
     justify-content: center;
     background-color: antiquewhite;
-    background-image: url(/Assets/Livros.png)
+    background-image: url(../assets/imgs/Livros.png)
 
 }
 
