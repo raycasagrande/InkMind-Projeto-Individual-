@@ -122,3 +122,23 @@ body{
     cursor: pointer;
     
 }
+
+.erro {
+    color: #b00020;
+    font-size: 35px;
+    margin-top: 4px;
+}
+
+.menssagem {
+
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #c4f0c5;
+  color: #1e4620;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  z-index: 9999;
+}
