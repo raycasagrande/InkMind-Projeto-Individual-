@@ -124,7 +124,7 @@ body {
   height: 80px;
   border-radius: 50%;
   margin: 0 auto 20px auto;
-  background-image: url(../assets/icon/icon.jpg);
+  background-image: url(/assets/icon/icon.jpg);
   background-size: cover;
   background-position: center;
 }
