@@ -15,8 +15,8 @@ function buscar(req, res) {
 
     } else {
         usuarioModel.buscar(email, senha)
-            .then((resultadoAquarios) => {
-                if (resultadoAquarios.length > 0) {
+            .then((resultadoUsuarios) => {
+                if (resultadoUsuarios.length > 0) {
                     res.json({
 
                         email: resultadoAutenticar[0].email,
