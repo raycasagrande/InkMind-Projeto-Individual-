@@ -66,7 +66,7 @@
    
 function cadastrar() {
   var nomeVar = input_nome.value;
-  var nick = input_nick.value;
+  var nickVar = input_nick.value;
   var emailVar = input_email.value;
   var senhaVar = input_senha.value;
   var confirmacaoSenhaVar = input_confirmacao.value;
@@ -80,7 +80,7 @@ function cadastrar() {
   // Verificando se há algum campo em branco
   if (
     nomeVar === "" ||
-    nickVar == ""||
+    nickVar === "" ||
     emailVar === "" ||
     senhaVar === "" ||
     confirmacaoSenhaVar === ""
@@ -158,5 +158,4 @@ function cadastrar() {
   return false;
 }
 
-
-// </script>
+</script>
