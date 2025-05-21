@@ -66,6 +66,7 @@
    
 function cadastrar() {
   var nomeVar = input_nome.value;
+  var nomeUsuario = input_user.value;
   var emailVar = input_email.value;
   var senhaVar = input_senha.value;
   var confirmacaoSenhaVar = input_confirmacao.value;
@@ -79,6 +80,7 @@ function cadastrar() {
   // Verificando se há algum campo em branco
   if (
     nomeVar === "" ||
+    nomeUsuarioVar == ""||
     emailVar === "" ||
     senhaVar === "" ||
     confirmacaoSenhaVar === ""
@@ -91,6 +93,12 @@ function cadastrar() {
   // Verificando se o nome é válido
   if (nomeVar.length <= 1) {
     mensagem_erro.innerHTML = "Insira o nome completo.";
+    return false;
+  }
+
+  //Verificando se o nome de usuário é válido
+  if (nomeUsuarioVar.length <= 5) {
+    mensagem_erro.innerHTML = "Insira um nome de usuário válido.";
     return false;
   }
 
@@ -120,6 +128,7 @@ function cadastrar() {
     },
     body: JSON.stringify({
       nomeServer: nomeVar,
+      nomeUsuarioServer: nomeUsuarioVar,
       emailServer: emailVar,
       senhaServer: senhaVar,
     }),
