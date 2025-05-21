@@ -34,9 +34,9 @@
                     <input type="text" id="input_nome" placeholder="Rayssa Casagrande">
                     <p id="erro_nome" class="erro hidden">Preencha seu nome completo</p>
 
-                    <p id="p_user">Nome de usuário:</p>
-                    <input type="text" id="input_user" placeholder="@ray.casagrande">
-                    <p id="erro_user" class="erro hidden">Defina um nome de usuário</p>
+                    <p id="p_nick">Nome de usuário:</p>
+                    <input type="text" id="input_nick" placeholder="@ray.casagrande">
+                    <p id="erro_nick" class="erro hidden">Defina um nome de usuário</p>
 
                     <p id="p_email">E-mail:</p>
                     <input type="text" id="input_email" placeholder="rayssa.souza@sptech.com">
@@ -66,7 +66,7 @@
    
 function cadastrar() {
   var nomeVar = input_nome.value;
-  var nomeUsuario = input_user.value;
+  var nick = input_nick.value;
   var emailVar = input_email.value;
   var senhaVar = input_senha.value;
   var confirmacaoSenhaVar = input_confirmacao.value;
@@ -80,7 +80,7 @@ function cadastrar() {
   // Verificando se há algum campo em branco
   if (
     nomeVar === "" ||
-    nomeUsuarioVar == ""||
+    nickVar == ""||
     emailVar === "" ||
     senhaVar === "" ||
     confirmacaoSenhaVar === ""
@@ -97,8 +97,8 @@ function cadastrar() {
   }
 
   //Verificando se o nome de usuário é válido
-  if (nomeUsuarioVar.length <= 5) {
-    mensagem_erro.innerHTML = "Insira um nome de usuário válido.";
+  if (nickVar.length <= 5) {
+    mensagem_erro.innerHTML = "Insira um nickname válido.";
     return false;
   }
 
@@ -128,7 +128,7 @@ function cadastrar() {
     },
     body: JSON.stringify({
       nomeServer: nomeVar,
-      nomeUsuarioServer: nomeUsuarioVar,
+      nickServer: nickVar,
       emailServer: emailVar,
       senhaServer: senhaVar,
     }),
