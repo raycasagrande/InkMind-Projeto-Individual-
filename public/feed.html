@@ -38,7 +38,8 @@
     
   </div>
 
-  <!-- Campo de novo comentário/publicação -->
+  <!-- Estruturação do campo de novo comentário/publicação -->
+
   <div class="new-post-box">
     <input class="new-post-input" type="text" placeholder="Compartilhe algo literário...">
     <button class="publish-btn">Publicar</button>
@@ -100,6 +101,46 @@
       </div>
     </main>
   </div>
+
+  <!-- Criando a estrutura para uma nova postagem -->
+
+  <script>
+
+  document.querySelector('.publish-btn').addEventListener('click', () => {
+
+    var input = document.querySelector('.new-post-input');
+    var content = input.value.trim();
+
+    if (content === '') return;
+
+    var postHTML = `
+      <div class="post">
+        <div class="post-header">
+          <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar">
+          <span class="username">@ray.casagrande</span>
+        </div>
+        <div class="post-content">${content}</div>
+        <br>
+        <div class="post-actions">
+          <button class="like-btn">❤️ Curtir</button>
+        </div>
+        <div class="comments"></div>
+        <div class="comment-box">
+          <input class="comment-input" type="text" placeholder="Escreva um comentário...">
+        </div>
+      </div>
+    `;
+
+    // Inserindo no feed
+
+    var feed = document.querySelector('.feed');
+    feed.insertAdjacentHTML('afterbegin', postHTML);
+
+    // Limpando campo de publicação
+    input.value = '';
+  });
+</script>
+
 </body>
 
 </html>
