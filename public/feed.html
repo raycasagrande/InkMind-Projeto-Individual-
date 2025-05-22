@@ -107,8 +107,8 @@
   <script>
 
   document.querySelector('.publish-btn').addEventListener('click', () => {
-
-    var input = document.querySelector('.new-post-input');
+ //define que quando o botão com a classe .publish-btn for clicado, a função () => {...} será executada.
+    var input = document.querySelector('.new-post-input');//ele retorna o objeto correspondente ao input na tela J
     var content = input.value.trim();
 
     if (content === '') return;
