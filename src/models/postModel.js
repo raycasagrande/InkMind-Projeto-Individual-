@@ -1,13 +1,18 @@
 var database = require("../database/config");
 
+ console.log('Model dando erro');
+
 module.exports = {
+ 
   criarPostagem: (userId, texto, callback) => {
     return database.executar(
       'INSERT INTO postagem (caracteres, fkUsuario) VALUES (?, ?)',
       [texto, userId],
       callback
     );
+   
   },
+  
 
   listarPostagens: (callback) => {
     return database.executar(
@@ -16,6 +21,7 @@ module.exports = {
        ORDER BY p.dataPostagem DESC`,
       callback
     );
+    
   },
 
   curtirPostagem: (postId, userId, callback) => {
@@ -25,6 +31,7 @@ module.exports = {
       callback
     );
   },
+  
 
   comentarPostagem: (postId, userId, texto, callback) => {
     return database.executar(

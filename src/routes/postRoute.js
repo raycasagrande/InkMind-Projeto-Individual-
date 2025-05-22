@@ -9,3 +9,5 @@ router.post('/:id/comment', postController.comentar);
 router.get('/:id/comments', postController.comentarios);
 
 module.exports = router;
+
+console.log('Erro na route')

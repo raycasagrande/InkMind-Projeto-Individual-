@@ -16,12 +16,12 @@
   <!-- Menu lateral -->
 
   <div class="container">
-    <aside class="sidebar">
+    <aside class="sidebar"> <!-- Tag que indica o menu lateral -->
       <a href="">
       <div class="user-icon"></div>
       </a>
-      <a href="perfil.html" class="user-name">@ray.casagrande</a>
-      <nav class="menu">
+      <a href="perfil.html" class="user-name">@ray.casagrande</a> <!-- a tag a descreve um link -->
+      <nav class="menu"> <!-- Agrupamento de links de navegação -->
         <a href="#">Página Inicial</a>
         <a href="#">Notificações</a>
         <a href="#">Conversas</a>
@@ -30,11 +30,11 @@
         <a href="./index.html">Sair</a>
       </nav>
     </aside>
-    <main class="main-content">
+    <main class="main-content"> <!-- Indica o conteuúdo principal -->
      
 <main class="main-content">
   <div class="top-bar">
-    <h1 class="brand">InkMind</h1>
+    <h1 class="brand">InkMind</h1> <!-- A class brand é um atributo global que permite agrupar elementos com a mesma finalidade para estilização com css -->
     
   </div>
 
@@ -105,16 +105,17 @@
 
   <!-- Criando a estrutura para uma nova postagem -->
 
-  <script>
+<script>
 
-  document.querySelector('.publish-btn').addEventListener('click', () => {
- //define que quando o botão com a classe .publish-btn for clicado, a função () => {...} será executada.
-    var input = document.querySelector('.new-post-input');//ele retorna o objeto correspondente ao input na tela J
-    var content = input.value.trim();
+  document.querySelector('.publish-btn').addEventListener('click', () => { //define que quando o botão com a classe .publish-btn for clicado, a função () => {...} será executada.
+
+    var input = document.querySelector('.new-post-input'); //ele retorna o objeto correspondente ao input na tela J
+    var content = input.value.trim(); // remove o espaço em branco do inicio e do fim de uma strig
 
     if (content === '') return;
 
     var postHTML = `
+    
       <div class="post">
         <div class="post-header">
           <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar">
@@ -135,7 +136,7 @@
     // Inserindo no feed
 
     var feed = document.querySelector('.feed');
-    feed.insertAdjacentHTML('afterbegin', postHTML);
+    feed.insertAdjacentHTML('afterbegin', postHTML); // insere o código html armazenado na variável como primeiro filho do feed, antes de qualquer conteúdo sem substituir o anterior.
 
     // Limpando campo de publicação
     input.value = '';
