@@ -2,6 +2,8 @@ var usuarioModel = require("../models/usuarioModel");
 
 function buscar(req, res) {
 
+    console.log("Requisição recebida:",req.body);
+
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -16,14 +18,15 @@ function buscar(req, res) {
     } else {
         usuarioModel.buscar(email, senha)
             .then((resultadoUsuarios) => {
+                console.log("Resultado do banco: resultadoUsuários")
                 if (resultadoUsuarios.length > 0) {
                     res.json({
 
-                        email: resultadoAutenticar[0].email,
-                        nome: resultadoAutenticar[0].nome,
+                        email: resultadoUsuarios[0].email,
+                        nome: resultadoUsuarios[0].nome,
 
                     });
-                } else if (resultadoAutenticar.length == 0) {
+                } else if (resultadoUsuarios.length == 0) {
 
                     res.status(403).send("Email e/ou senha inválido(s)");
                 } else {

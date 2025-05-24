@@ -127,5 +127,10 @@ body{
     color: aliceblue;
 }
 
+.hidden {
+
+    display: none;
+}
+
 
 
