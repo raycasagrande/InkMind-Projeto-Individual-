@@ -127,8 +127,6 @@ text-decoration: underline;
 color: #965c29;
 }
 
-
-
 .user-icon {
 
   width: 80px;
@@ -204,6 +202,7 @@ color: #965c29;
 }
 
 /* Novo campo de publicação */
+
 .new-post-box {
   display: flex;
   justify-content: center;
@@ -227,7 +226,7 @@ color: #965c29;
   border-color: #dea054;
 }
 
-.publish-btn {
+.publicarComentario {
   padding: 10px 16px;
   background-color: #dea054;
   border: none;
