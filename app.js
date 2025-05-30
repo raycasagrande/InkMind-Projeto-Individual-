@@ -17,9 +17,10 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var postRouter = require("./src/routes/postRoute")
+// var postagemRouter = require("./src/routes/postagem");
 
 app.use(express.json());
+// app.use('/post', postagemRouter);// Ativa a rota do comentário 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -27,7 +28,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuario", usuarioRouter);
-app.use('/post', postRouter);
+// app.use('/post', postagemRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

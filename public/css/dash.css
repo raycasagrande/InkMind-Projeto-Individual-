@@ -4,10 +4,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-   font-family:  "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: "Open Sans", sans-serif;
 }
@@ -19,7 +20,7 @@ body, html {
 
 .sidebar {
   width: 200px;
-  background-color:#f7e4b9;
+  background-color: #f7e4b9;
   color: white;
   display: flex;
   flex-direction: column;
@@ -29,11 +30,13 @@ body, html {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.logo{
+.logo {
   text-align: center;
-  font-family: 'Italianno', cursive; /* ou qualquer outra fonte estilizada */
+  font-family: 'Italianno', cursive;
+  /* ou qualquer outra fonte estilizada */
   font-size: 40px;
-  color: #8B4513; /* marrom */
+  color: #8B4513;
+  /* marrom */
   margin-bottom: 20px;
   margin-top: 10px;
 
@@ -54,8 +57,8 @@ body, html {
 
 .box-central {
   width: 140vh;
-  height: 90vh ;
-  background-color:#f7e5d3;
+  height: 90vh;
+  background-color: #f7e5d3;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -69,12 +72,13 @@ body, html {
 
 .sidebar a {
 
-  font-family:"Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: block;
   width: 90%;
   padding: 10px 15px;
   margin: 10px auto;
-  background-color: #8B4513; /* marrom principal */
+  background-color: #8B4513;
+  /* marrom principal */
   color: white;
   border: none;
   border-radius: 8px;
@@ -83,17 +87,19 @@ body, html {
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
- 
+
 }
 
 .sidebar a:hover {
-  background-color: #A0522D; /* marrom mais claro no hover */
+  background-color: #A0522D;
+  /* marrom mais claro no hover */
   transform: scale(1.05);
   text-decoration: underline;
 }
 
 .sidebar a:active {
-  background-color: #5A2E0C; /* marrom mais escuro ao clicar */
+  background-color: #5A2E0C;
+  /* marrom mais escuro ao clicar */
 }
 
 .kpis-container {
@@ -109,14 +115,14 @@ body, html {
 }
 
 .kpi-card {
-  background-color:#a48c60;
+  background-color: #a48c60;
   color: white;
   border-radius: 15px;
   display: flex;
   align-items: center;
   padding: 15px 20px;
   width: 180px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .kpi-icon {
@@ -147,4 +153,17 @@ body, html {
 .small {
   font-size: 12px;
   font-weight: normal;
+}
+
+/* Estilizando o gráfico */
+
+.bar-Chart {
+  display: block;
+  margin: 0% auto;
+  max-width: 500px;
+  height: 300px;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin-top: 20px;
 }

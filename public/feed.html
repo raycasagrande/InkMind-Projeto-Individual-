@@ -39,14 +39,15 @@
 
   <!-- Estruturação do campo de novo comentário/publicação -->
 
-  <div class="new-post-box">
+ <div class="caixa-nova-publicacao">
+  <input type="text" id="input_comentario" placeholder="Escreva algo...">
+  <button id="botao">Publicar</button>
+</div>
 
-   <!-- Campo de digitação e botão -->
-<input type="text" id="input_comentario" placeholder="Escreva algo...">
-<button class="publicarComentario()">Publicar</button>
+<div class="feed">
+  <!-- Comentários serão inseridos aqui -->
+</div>
 
-  </div>
-  
   <div class="feed">
     
       </div>
@@ -108,43 +109,46 @@
   <!-- Criando a estrutura para uma nova postagem -->
 
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const botao = document.getElementById("botao");
 
-  document.querySelector('.publish-btn').addEventListener('click', () => { //define que quando o botão com a classe .publish-btn for clicado, a função () => {...} será executada.
-
-    var input = document.querySelector('.new-post-input'); //ele retorna o objeto correspondente ao input na tela J
-    var content = input.value.trim(); // remove o espaço em branco do inicio e do fim de uma strig
-
-    if (content === '') return;
-
-    var postHTML = `
-    
-      <div class="post">
-        <div class="post-header">
-          <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar">
-          <span class="username">@ray.casagrande</span>
-        </div>
-        <div class="post-content">${content}</div>
-        <br>
-        <div class="post-actions">
-          <button class="like-btn">❤️ Curtir</button>
-        </div>
-        <div class="comments"></div>
-        <div class="comment-box">
-          <input class="comment-input" type="text" placeholder="Escreva um comentário...">
-        </div>
-      </div>
-    `;
-
-    // Inserindo no feed
-
-    var feed = document.querySelector('.feed');
-    feed.insertAdjacentHTML('afterbegin', postHTML); // insere o código html armazenado na variável como primeiro filho do feed, antes de qualquer conteúdo sem substituir o anterior.
-
-    // Limpando campo de publicação
-    input.value = '';
+    if (botao) {
+      botao.addEventListener("click", publicarComentario);
+    }
   });
+
+  function publicarComentario() {
+    const comentario = document.getElementById("input_comentario").value.trim();
+
+    if (comentario === "") {
+      alert("Por favor, escreva algo antes de publicar.");
+      return;
+    }
+
+    const idUsuario = sessionStorage.getItem('idUsuario');
+
+    fetch('/post/publicar', {
+  method: 'POST', // Método HTTP
+  headers: {
+    'Content-Type': 'application/json'//Tipo de conteúdo enviado 
+  },
+  body: JSON.stringify({
+    
+    texto: document.getElementById('input_comentario').value,
+    idUsuario: sessionStorage.getItem('idUsuario') 
+  })
+})
+.then(res => res.json())
+.then(data => {
+  alert(data.mensagem);
+})
+.catch(err => console.error("Não postou"));
+ 
+   }
 </script>
+
 
 </body>
 
 </html>
+

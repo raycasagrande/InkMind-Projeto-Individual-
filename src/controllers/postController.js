@@ -1,22 +1,35 @@
-var postModel = require('../models/postModel');
-var post = require('../models/postModel');
+const express = require('express');
+const mysql = require('mysql2');
+const router = express.Router();
 
- console.log('Controller dando erro');
+// Conexão com o banco de dados
+// const db = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'sua_senha',
+//   database: 'inkmind'
+// });
 
-function publicar(req, res) {
+// Rota para publicar um comentário
+router.post('/publicar', (req, res) => {
+  const { texto, idUsuario } = req.body;
 
-  var idUsuario = req.body.idUsuario;
-  var texto = req.body.texto;
+  if (!texto || !idUsuario) {
+    return res.status(400).json({ erro: 'Texto ou ID do usuário ausente.' });
+  }
 
-  postModel.publicar(texto, idUsuario)
-  .then(function (resultado){
-    res.json(resultado);
-  })
-  .catch(function (erro){
-    console.log("Erro ao publicar comentário", erro);
-    res.status(500).json(erro.sqlMenssage);
+  const sql = 'INSERT INTO postagem (caracteres, fkUsuario) VALUES (?, ?)';
+  const valores = [texto, idUsuario];
+
+  db.query(sql, valores, (erro, resultado) => {
+    if (erro) {
+      console.error('Erro ao inserir comentário:', erro);
+      return res.status(500).json({ erro: 'Erro ao publicar o comentário.' });
+    }
+
+    console.log(`Comentário inserido: "${texto}" do usuário com ID ${idUsuario}`);
+    res.status(200).json({ mensagem: 'Comentário publicado com sucesso!' });
   });
-}
-module.exports = {
-  publicar
-};
+});
+
+module.exports = router;

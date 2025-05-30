@@ -18,33 +18,31 @@
     <div class="container">
 
         <!-- Barra lateral esquerda -->
-
+ 
         <div class="sidebar">
             <p class="logo">InkMind</p>
-
 
             <a href="./perfil.html" class="botao_perfil">Perfil</a>
             <a href="./feed.html" class="botao_feed">Feed</a>
             <a href="./index.html" class="botao_sair">Sair</a>
            
-
         </div>
-
-
 
         <!-- Conteúdo central -->
-        <div class="content">
+
+         <div class="content">
             <div class="box-central">
 
-                QUADRO CENTRAL
+                  <canvas class="bar-chart"></canvas>
+
             </div>
-        </div>
+        </div> 
 
         <!-- kpi's -->
 
         <!-- Cards à direita -->
 
-        <div class="kpis-container">
+         <div class="kpis-container">
             <div class="kpi-card">
                 <div class="kpi-text">
                     <p class="kpi-label">Curtidas</p>
@@ -67,7 +65,44 @@
             </div>
         </div>
 
+        <!-- Criando o gráfico -->
+
+      
+
+        <!-- Incluindo o chart js -->
 
 </body>
 
 </html>
+
+<script>
+
+    var contexto = document.getElementsByClassName("bar-chart"); // pega todos os elementos que estão definídos dentro do parâmetro, nesse caso "bar-chart"
+
+    var grafico = new Chart(contexto, {
+
+      type: 'bar', //   definindo o tipo de gráfico
+      data: {
+        labels: ["Conexões", "Curtidas", "Comentários"], // definição das labels
+        datasets: [{
+            label: "Progresso",
+            data: [11, 10, 5], // dados que serão plotados
+            borderWidth: 6,
+            borderColor: 'rgba(77,166,253,0.85)',
+            backgroundColor: 'transparent',
+
+        },
+    ],
+
+    options: {
+        title: {
+          display: true,
+          fontSize: 20,
+          text: "Histórias conectadas"
+        },
+    }
+      }
+
+
+    });
+</script>
