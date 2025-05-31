@@ -60,7 +60,7 @@
 
 
     // Enviando o valor da nova input
-    fetch("/usuario/cadastrar", { 
+    fetch("/usuarios/cadastrar", { 
       method: "POST",
       headers: {
         "Content-Type": "application/json",
