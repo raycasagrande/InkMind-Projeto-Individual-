@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Italianno&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+
+  margin: 0;
+  /* Tira a margem padrão do corpo da página */
+  font-family: "Open Sans", sans-serif;
+  background: #c4a889;
+  overflow-x: hidden;
+
+}
+
+.menu {
+
+  display: flex;
+  width: 100%;
+  height: 40px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bar{
+
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border-bottom: solid 5px;
+}
+
+.menu-2 {
+
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.menu-2 a {
+
+
+   font-family: "Italianno", cursive;
+   font-size: 30px;
+   font-weight:400;
+   color:  #332920;
+   text-decoration: none;
+}
+
+.menu-2 a:hover {
+
+  text-decoration:underline;
+  color:#965c29;
+  transition: 0.3s ease;
+}
+
+.cover {
+
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  /* Posiciona elementos filhos com posição absoluta (como a foto de perfil) */
+  width: 100%;
+  /* Largura total da tela */
+  height: 300px;
+  /* Corresponde a altura da área de capa */
+  background-color: #ccc;
+  /* Cor de fundo cinza, caso a imagem da capa não carregue */
+}
+
+.cover-img {
+
+  width: 100%;
+  /* A imagem da capa ocupa toda a largura disponível */
+  height: 100%;
+  /* A altura da imagem da capa acompanha a altura da seção */
+  object-fit: cover;
+  /* A imagem da capa preenche o espaço sem distorcer, cortando o excesso */
+}
+
+.foto-perfil-container {
+
+  position: absolute;
+  /*Posição absoluta dentro do cabeçalho*/
+  display: flex;
+  bottom: -60px;
+  /* Move a foto do usuário para baixo, “saindo” da seção da capa */
+  /* Distância da borda esquerda */
+  border: 5px solid white;
+  /* Borda branca ao redor da imagem de perfil */
+  border-radius: 50%;
+  /* Deixa o contâiner do ícone do usuário completamente redondo */
+  overflow: hidden;
+  /* Corta qualquer parte da imagem que ultrapassar o contêiner */
+  width: 120px;
+  height: 120px;
+  /* Tamanho fixo da imagem de perfil */
+  background: white;
+  /* Cor de fundo branca para garantir contraste */
+}
+
+.foto-perfil {
+
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+  /* Garante que a imagem preencha totalmente o círculo sem distorcer */
+}
+
+.informacoes {
+
+  padding-bottom: 70px;
+  padding-top: 70px;
+  /* Espaçamento interno:
+     - 80px em cima (para compensar a imagem que ficou sobre a capa),
+     - 30px nas laterais,
+     - 20px embaixo */
+
+  background: white;
+  /* Fundo branco para destacar do restante da página */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra leve para dar profundidade */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.informacoes h1 {
+
+  margin: 0;
+  /* Remove a margem padrão do título */
+  font-size: 24px;
+
+}
+
+.user {
+
+  color: #332920;
+  /* Cor do nome de usuário */
+  margin-bottom: 10px;
+  /* Espaçamento abaixo do nome de usuário */
+  
+}
+
+.buttons {
+
+  display: flex;
+  /* Organiza os botões em linha */
+  gap: 10px;
+  /* Espaço entre os botões */
+}
+
+.buttons button {
+
+  padding: 8px 12px;
+  /* Espaçamento interno dos botões */
+  border: none;
+  /* Remove a borda padrão */
+  background-color: #dea054;
+  /* Cor de fundo do botão */
+  border-radius: 8px;
+  /* Borda levemente arredondada */
+  cursor: pointer;
+  /* Muda o cursor ao passar por cima, indicando que é clicável */
+}

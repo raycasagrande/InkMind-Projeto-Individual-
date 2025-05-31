@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+
+    <title>Login</title>
+
+</head>
+
+<body id="body" translate="no">
+
+    <div class="container">
+
+
+        <div class="sidebar">
+            <div class="conteudo">
+
+                <a href="./index.html" class="seta-retorno" title="Voltar">
+
+                    &#8592;
+                </a>
+
+
+                <div class="inkmind">
+
+                    <p>Seja bem-vindo(a)</p>
+                </div>
+                <div class="texto">
+
+                    <p>Email:</p>
+
+                    <input type="text" id="input_usuario" placeholder="seuEmail@gmail.com">
+                    <p>Senha:</p>
+                    <input type="password" id="input_senha" placeholder="********">
+                    <br><br>
+                </div>
+
+                <button onclick="autenticar()">Entrar</button>
+                <br><br>
+                
+                <div id="div_aguardar" style="display: none;"></div>
+                <div id="div_erros_login"></div>
+
+                <p id="erro_usuario" class="hidden" style="color: red;"></p>
+                <p id="erro_senha" class="hidden" style="color: red;"></p>
+
+
+            </div>
+            <a href="./feed.html"></a>
+        </div>
+
+
+        <script src="./js/login.js"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>

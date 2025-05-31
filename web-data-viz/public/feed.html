@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Feed</title>
+
+  <link rel="stylesheet" href="./css/feed.css">
+  <script src="./js/post.js"></script>
+</head>
+
+<body>
+
+  <!-- Menu lateral -->
+
+  <div class="container">
+    <aside class="sidebar"> <!-- Tag que indica o menu lateral -->
+      <a href="">
+        <div class="user-icon"></div>
+      </a>
+      <a href="perfil.html" class="user-name">@ray.casagrande</a> <!-- a tag a descreve um link -->
+      <nav class="menu"> <!-- Agrupamento de links de navegação -->
+        <a href="./perfil.html">Perfil</a>
+        <a href="./dash.html">Dashboard</a>
+        <a href="#">Notificações</a>
+        <a href="#">Conversas</a>
+        <a href="./index.html">Sair</a>
+      </nav>
+    </aside>
+    <main class="main-content"> <!-- Indica o conteuúdo principal -->
+
+      <main class="main-content">
+        <div class="top-bar">
+          <h1 class="brand">InkMind</h1>
+          <!-- A class brand é um atributo global que permite agrupar elementos com a mesma finalidade para estilização com css -->
+
+        </div>
+
+        <!-- Estruturação do campo de novo comentário/publicação -->
+
+        <div class="caixa-nova-publicacao">
+          <input type="text" id="input_comentario" placeholder="Nos conte sua história">
+          <button id="botao">Publicar</button>
+        </div>
+
+        <div class="feed">
+          <!-- Comentários serão inseridos aqui -->
+        </div>
+
+        <div class="feed">
+
+        </div>
+        <div class="feed">
+          <div class="post">
+            <div class="post-header">
+              <div class="post-header">
+                <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar">
+                <span class="username">@book.girl</span>
+              </div>
+
+            </div>
+            <div class="post-content">
+              A forma como a J.K. Rowlling conseguiu passar através dos livros dela o valor de amizades bem estruturadas
+              é
+              incrível!
+            </div>
+            <br>
+            <div class="post-actions">
+              <button class="like-btn">❤️ Curtir</button>
+            </div>
+            <div class="comments">
+              <div class="comment">@misterclassic: A lealdade entre Harry, Rony e Hermione sempre me emociona. Uma
+                amizade construída na coragem e confiança! </div>
+              <div class="comment">@fantasy.witch: A cena em que Hermione escolhe ficar com Harry em vez de ir pra casa
+                no primeiro livro… </div>
+              <div class="comment">@poetry.soul: “Eles enfrentaram tudo juntos: trolls, dementadores e até a morte. O
+                trio é o coração de Hogwarts</div>
+            </div>
+            <div class="comment-box">
+              <input class="comment-input" type="text" placeholder="Escreva um comentário...">
+            </div>
+          </div>
+
+          <div class="post">
+            <div class="post-header">.
+              <div class="post-header">
+                <img class="avatar" src="./assets/icon/icon2 (2).jpg" alt="Avatar">
+                <span class="username">@lara.walton</span>
+              </div>
+
+            </div>
+            <div class="post-content">
+              Nunca imaginei que não conseguiria terminar de ler um capítulo por conta de uma cena... Estou chocada! Red
+              me derrubou!
+            </div>
+            <br>
+            <div class="post-actions">
+              <button class="like-btn">❤️ Curtir</button>
+            </div>
+            <div class="comments">
+
+              <div class="comment">@thriller.page: A intensidade emocional nos livros da Red R. é surreal. Sob o Olhar
+                do Lobo me deixou sem chão</div>
+              <div class="comment">@leitora.noturna: “A forma como a Red R. trabalha temas sombrios com profundidade
+                psicológica me prendeu do início ao fim. Viciante e perturbador na medida certa!</div>
+            </div>
+            <div class="comment-box">
+              <input class="comment-input" type="text" placeholder="Escreva um comentário...">
+            </div>
+          </div>
+        </div>
+      </main>
+  </div>
+
+  <!-- Criando a estrutura para uma nova postagem -->
+
+  <script>
+    const botao = document.getElementById("botao");
+
+    botao.addEventListener("click", publicarPostagem);
+
+    function publicarComentario() {
+
+      const comentario = document.getElementById("input_comentario").value.trim();
+
+      if (comentario === "") {
+        alert("Por favor, escreva algo antes de publicar.");
+        return;
+      }
+
+      const idUsuario = sessionStorage.getItem('idUsuario');
+
+      fetch('/postagem/publicarPostagem', {
+        method: 'POST', // Método HTTP
+        headers: {
+          'Content-Type': 'application/json'//Tipo de conteúdo enviado 
+        },
+        body: JSON.stringify({
+
+          texto: document.getElementById('input_comentario').value,
+          idUsuario: sessionStorage.getItem('idUsuario')
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert(data.mensagem);
+        })
+        .catch(err => console.error("Não postou"));
+
+    }
+  </script>
+
+
+</body>
+
+</html>
