@@ -46,7 +46,7 @@ function publicarPostagem(texto, idUsuario) {
 function buscarPostagem(idUsuario) {
     console.log("Estou na função buscar")
     var instrucaoSql = `
-        select * from postagem where fkUsuario = ${idUsuario};
+        select * from postagem where fkUsuario = ${idUsuario} order by idPostagem desc;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

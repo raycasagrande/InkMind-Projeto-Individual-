@@ -61,6 +61,8 @@ function buscarPostagem() {
     })
     .then(data => {
      sessionStorage.setItem("POSTAGENS_USUARIO",JSON.stringify(data.publicacoes))
+
+     exibirPostagens();
     })
     .catch(erro => {
       console.error("Erro na requisição:", erro);
@@ -103,5 +105,41 @@ function publicarComentario() {
     });
 }
 
-// Adiciona o listener ao botão após o carregamento da página
-// document.getElementById("botaoPublicar").addEventListener("click", publicarComentario);
+// Pegando a div postagem, crianod uma var post, e no json está pegando todos os campos/arrays
+ 
+function exibirPostagens() {
+    document.getElementById("div_feed").innerHTML = ' ';
+    var post = ' ';
+
+    JSON.parse(sessionStorage.POSTAGENS_USUARIO).forEach(item => {
+         post += `  <div class="post">
+            <div class="post-header">
+              <div class="post-header">
+                <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar">
+                <span class="username">${sessionStorage.NOME_USUARIO}</span>
+              </div>
+
+            </div>
+            <div class="post-content">
+              ${item.caracteres}
+            </div>
+            <br>
+            <div class="post-actions">
+              <button class="like-btn">❤️ Curtir</button>
+            </div>
+            <div class="comments">
+              <div class="comment">@misterclassic: A lealdade entre Harry, Rony e Hermione sempre me emociona. Uma
+                amizade construída na coragem e confiança! </div>
+              <div class="comment">@fantasy.witch: A cena em que Hermione escolhe ficar com Harry em vez de ir pra casa
+                no primeiro livro… </div>
+              <div class="comment">@poetry.soul: “Eles enfrentaram tudo juntos: trolls, dementadores e até a morte. O
+                trio é o coração de Hogwarts</div>
+            </div>
+            <div class="comment-box">
+              <input class="comment-input" type="text" placeholder="Escreva um comentário...">
+            </div>
+          </div>`
+        ;
+    });
+    document.getElementById("div_feed").innerHTML = post;
+  }
