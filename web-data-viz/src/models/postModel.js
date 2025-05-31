@@ -32,15 +32,6 @@ function apagarFavorito(idFavorito){
     return database.executar(instrucaoSql);
 }
 
-module.exports = {
-    autenticar,
-    buscarPerfil,
-    cadastrar,
-    cadastrarFavorito,
-    BuscarFavorito,
-    apagarFavorito
-};
-
 function publicarPostagem(texto, idUsuario) {
     console.log("Esntou na função publicar")
     var instrucaoSql = `
@@ -52,6 +43,20 @@ function publicarPostagem(texto, idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarPostagem(idUsuario) {
+    console.log("Estou na função buscar")
+    var instrucaoSql = `
+        select * from postagem where fkUsuario = ${idUsuario};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    publicarPostagem
+    buscarPostagem,
+    publicarPostagem,
+    cadastrarFavorito,
+    // BuscarFavorito,
+    // apagarFavorito
 };

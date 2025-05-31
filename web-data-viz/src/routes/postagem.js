@@ -3,12 +3,21 @@ const router = express.Router();
 
 var postController = require("../controllers/postController");
 
-// Rota para publicar um comentário
+// Rota para publicar
+
 router.post("/publicarPostagem", function (req, res) {
     postController.publicarPostagem(req, res);
 })
 
+// Rota para buscar postagens
+
+router.post("/buscarPostagem", function (req, res) {
+    postController.buscarPostagem(req, res);
+})
+
 module.exports = router;
+
+
 
 // var express = require('express'); // carrega o módulo express, framework para criar o servidor de rotas
 // var router = express.Router(); // define rotas específicas

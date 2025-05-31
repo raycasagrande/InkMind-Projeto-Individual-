@@ -1,5 +1,6 @@
 
 // var ambiente_processo = 'producao';
+
 var ambiente_processo = 'desenvolvimento';
 
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
@@ -25,7 +26,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-// var postRoutes = require('./src/routes/postagem'); // ou postagem, depende do nome
+var postRoutes = require('./src/routes/postagem'); // ou postagem, depende do nome
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,7 +36,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-// app.use("/postagem",postRoutes);
+app.use("/postagem",postRoutes);
 // app.use("/medidas", medidasRouter);
 // app.use("/aquarios", aquariosRouter);
 // app.use("/empresas", empresasRouter);

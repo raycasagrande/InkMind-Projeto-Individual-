@@ -1,12 +1,16 @@
 function publicarPostagem() {
+
   // 1. Pega o texto digitado no input
+
   var comentario = document.getElementById("input_comentario").value.trim();
 
   // 2. Pega o ID do usuário que está logado (salvo no sessionStorage)
+
   var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
   // 3. Envia para o back-end com fetch
-  fetch("/postagem/publicar", {
+
+  fetch("/postagem/publicarPostagem", {
     method: "POST", // Tipo da requisição
     headers: {
       "Content-Type": "application/json" // Diz que o corpo será JSON
@@ -25,12 +29,45 @@ function publicarPostagem() {
     .then(data => {
       alert(data.mensagem || "Postagem publicada com sucesso!");
       document.getElementById("input_comentario").value = ""; // limpa o campo
+
+      buscarPostagem();
     })
     .catch(erro => {
       console.error("Erro na requisição:", erro);
       alert("Erro ao publicar comentário.");
     });
 }
+
+function buscarPostagem() {
+
+  var idUsuario = sessionStorage.getItem("ID_USUARIO");
+
+  // 3. Envia para o back-end com fetch
+
+  fetch("/postagem/buscarPostagem", {
+    method: "POST", // Tipo da requisição
+    headers: {
+      "Content-Type": "application/json" // Diz que o corpo será JSON
+    },
+    body: JSON.stringify({
+      fkUsuarioServer: idUsuario    // quem postou
+    })
+  })
+    .then(resposta => {
+      if (!resposta.ok) {
+        throw new Error("Erro ao publicar.");
+      }
+      return resposta.json();
+    })
+    .then(data => {
+     sessionStorage.setItem("POSTAGENS_USUARIO",JSON.stringify(data.publicacoes))
+    })
+    .catch(erro => {
+      console.error("Erro na requisição:", erro);
+      alert("Erro ao publicar comentário.");
+    });
+}
+
 
 function publicarComentario() {
   // 1. Pega o texto digitado no input
