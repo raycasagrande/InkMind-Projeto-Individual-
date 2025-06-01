@@ -5,64 +5,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Feed</title>
+  <title>InkMind</title> <!-- Nome que fica na aba do navegador -->
 
-  <link rel="stylesheet" href="./css/feed.css">
-  <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon">
-  <script src="./js/post.js"></script>
+  <link rel="stylesheet" href="./css/feed.css"> <!-- Importa a estilização CSS -->
+  <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon"> <!-- Define o ícone que aparece na aba -->
+  <script src="./js/post.js"></script> <!-- Importa o script da lógica de postagens no feed -->
 </head>
 
-<body onload="buscarPostagem()">
+<body onload="buscarPostagem()"> <!-- Executa a função para exibir as postagens assim que a página carrega -->
 
   <!-- Menu lateral -->
 
-  <div class="container">
-    <aside class="sidebar"> <!-- Tag que indica o menu lateral -->
+  <div class="container"> <!-- Serve para agrupar o layout com menu lateral e conteúdo principal -->
+    <aside class="sidebar"> <!-- Tag que indica o menu lateral (Icon e link do perfil) -->
       <a href="">
         <div class="user-icon"></div>
       </a>
-      <a href="perfil.html" class="user-name">@ray.casagrande</a> <!-- a tag a descreve um link -->
+      <a href="perfil.html" class="user-name">@ray.casagrande</a> <!-- Link para o perfil do usuário -->
+
       <nav class="menu"> <!-- Agrupamento de links de navegação -->
-        <a href="./perfil.html">Perfil</a>
-        <a href="./dash.html">Dashboard</a>
-        <a href="#">Notificações</a>
-        <a href="#">Conversas</a>
-        <a href="./index.html">Sair</a>
+        <a href="./perfil.html">Perfil</a> <!-- Link para o perfil -->
+        <a href="./dash.html">Dashboard</a> <!-- Link para a dashboard -->
+        <a href="./index.html">Sair</a> <!-- Link para voltar à página principal -->
       </nav>
     </aside>
+
     <main class="main-content"> <!-- Indica o conteuúdo principal -->
 
       <main class="main-content">
         <div class="top-bar">
-          <h1 class="brand">InkMind</h1>
-          <!-- A class brand é um atributo global que permite agrupar elementos com a mesma finalidade para estilização com css -->
+          <h1 class="brand">InkMind</h1> <!-- A class brand é um atributo global que permite agrupar elementos com a mesma finalidade para estilização com css -->
 
         </div>
 
-        <!-- Estruturação do campo de novo comentário/publicação -->
+        <!-- Estruturação do campo de nova publicação -->
 
         <div class="caixa-nova-publicacao">
           <input type="text" id="input_comentario" placeholder="Nos conte sua história">
           <button id="botao">Publicar</button>
         </div>
         
+
+        <!-- Container que define o que cada post terá -->
+
         <div class="feed" id="div_feed">
           <div class="post">
             <div class="post-header">
               <div class="post-header">
-                <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar">
-                <span class="username">@book.girl</span>
+                <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar"> <!-- Icon do usuário -->
+                <span class="username">@book.girl</span> <!-- Nick do usuário -->
               </div>
 
             </div>
-            <div class="post-content">
+            <div class="post-content"> <!-- Conteúdo -->
               A forma como a J.K. Rowlling conseguiu passar através dos livros dela o valor de amizades bem estruturadas
               é
               incrível!
             </div>
             <br>
             <div class="post-actions">
-              <button class="like-btn">❤️ Curtir</button>
+              <button class="like-btn">❤️ Curtir</button> <!-- Botão de curtida -->
             </div>
             <div class="comments">
               <div class="comment">@misterclassic: A lealdade entre Harry, Rony e Hermione sempre me emociona. Uma
@@ -73,7 +75,7 @@
                 trio é o coração de Hogwarts</div>
             </div>
             <div class="comment-box">
-              <input class="comment-input" type="text" placeholder="Escreva um comentário...">
+              <input class="comment-input" type="text" placeholder="Escreva um comentário..."> <!-- Campo para novo comentário -->
             </div>
           </div>
 
@@ -111,11 +113,16 @@
   <!-- Criando a estrutura para uma nova postagem -->
 
   <script>
+
+    // Quando o botão "Publicar" é clicado, ativa a função "publicarPostagem"
+
     const botao = document.getElementById("botao");
 
     botao.addEventListener("click", publicarPostagem);
 
     function publicarComentario() {
+
+      // Valida se o campo não está vazio
 
       const comentario = document.getElementById("input_comentario").value.trim();
 
@@ -124,22 +131,25 @@
         return;
       }
 
-      const idUsuario = sessionStorage.getItem('idUsuario');
+      const idUsuario = sessionStorage.getItem('idUsuario'); // Pega o id do usuário logado na sessão
 
-      fetch('/postagem/publicarPostagem', {
-        method: 'POST', // Método HTTP
+
+      // Envia a postagem para o BD
+
+      fetch('/postagem/publicarPostagem', { // Faz uma requisição HTTP para a rota postagem/publicarPostagem no servidor
+        method: 'POST', // Define que a requisição será do tipo POST, usava para envio de dados
         headers: {
-          'Content-Type': 'application/json'//Tipo de conteúdo enviado 
+          'Content-Type': 'application/json'// Informa que o corpo da requisição será JSON
         },
-        body: JSON.stringify({
+        body: JSON.stringify({ // Converte o objeto JS em uma string JSON 
 
-          texto: document.getElementById('input_comentario').value,
-          idUsuario: sessionStorage.getItem('idUsuario')
+          texto: document.getElementById('input_comentario').value, // Pega o valor da input e envia como texto
+          idUsuario: sessionStorage.getItem('idUsuario') // Pega o id do usuário correspondente a sessão
         })
       })
-        .then(res => res.json())
-        .then(data => {
-          alert(data.mensagem);
+        .then(res => res.json()) // Converte a resposta JSON em JS
+        .then(data => { // Manipula a resposta já convertida
+          // alert(data.mensagem);
         })
         .catch(err => console.error("Não postou"));
 
