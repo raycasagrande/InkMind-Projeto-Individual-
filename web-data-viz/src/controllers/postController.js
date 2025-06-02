@@ -2,12 +2,12 @@ var postModel = require("../models/postModel");
 
 function publicarPostagem(req, res) {
 
-  var comentario = req.body.caracteresServer;
-  var idUsuario = req.body.fkUsuarioServer;
+  var comentario = req.body.texto;
+  var idUsuario = req.body.idUsuario;
 
   postModel.publicarPostagem(comentario, idUsuario)
     .then((resultadoUsuarios) => {
-      console.log("Resultado do banco: resultadoUsuários")
+      console.log("Resultado do banco:", resultadoUsuários)
         res.json({
           idUsuario: resultadoUsuarios.insertId,
         });
@@ -24,7 +24,7 @@ function publicarPostagem(req, res) {
 
 function buscarPostagem(req, res) {
 
-  var idUsuario = req.body.fkUsuarioServer;
+  var idUsuario = req.params.idUsuario;
 
   postModel.buscarPostagem(idUsuario)
     .then((resultadosPostagem) => {

@@ -1,9 +1,10 @@
 // sessão
 function validarSessao() {
 
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
-    var id = sessionStorage.ID_USUARIO;
+    var email = sessionStorage.getItem("emailUsuario");
+    var nome = sessionStorage.getItem("nomeUsuario");
+    var id = sessionStorage.getItem("idUsuario");
+
 
     var input_usuario = document.getElementById("input_usuario");
 
@@ -114,9 +115,10 @@ function autenticar() {
                 console.log(JSON.stringify(json));
 
                 localStorage.setItem("idUsuario", json.id);
-                sessionStorage.ID_USUARIO = json.idUsuario;
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.setItem("idUsuario", json.idUsuario);
+                sessionStorage.setItem("emailUsuario", json.email);
+                sessionStorage.setItem("nomeUsuario", json.nome);
+
 
                 setTimeout(function () {
 

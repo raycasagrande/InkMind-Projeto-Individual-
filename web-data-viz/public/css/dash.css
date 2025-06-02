@@ -110,19 +110,26 @@ html {
   margin: 30px auto;
   justify-content: center;
   background-color: #f7e4b9;
+  padding: 20px;
   margin-top: 0%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .kpi-card {
-  background-color: #a48c60;
+
+  background-color: #8B4513;
   color: white;
-  border-radius: 15px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  padding: 15px 20px;
+  padding: 10px 15px;
   width: 180px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: default;
+
 }
 
 .kpi-icon {

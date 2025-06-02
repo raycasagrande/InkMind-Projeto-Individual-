@@ -10,7 +10,7 @@
     <!-- importa a bliblioteca necessária para as kpi's -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <title>Dash</title>
+    <title>InkMind - Dashboard</title>
 
 </head>
 
@@ -22,88 +22,177 @@
 
         <div class="sidebar">
             <p class="logo">InkMind</p>
-
             <a href="./perfil.html" class="botao_perfil">Perfil</a>
             <a href="./feed.html" class="botao_feed">Feed</a>
             <a href="./index.html" class="botao_sair">Sair</a>
-
         </div>
 
         <!-- Conteúdo central -->
 
         <div class="content">
             <div class="box-central">
-
                 <canvas class="bar-chart"></canvas>
-
             </div>
         </div>
 
-        <!-- kpi's -->
+        <!-- KPI's à direita -->
 
-        <!-- Cards à direita -->
+        <!-- Curtidas -->
 
         <div class="kpis-container">
             <div class="kpi-card">
                 <div class="kpi-text">
-                    <p class="kpi-label">Curtidas</p>
-                    <p class="kpi-value">20</p>
+                    <p class="kpi-label">Curtidas(Diária)</p>
+                    <p class="kpi-value" id="valorCurtidas">20</p>
                 </div>
             </div>
+
+            <!-- Comentários -->
 
             <div class="kpi-card">
                 <div class="kpi-text">
-                    <p class="kpi-label">Comentários</p>
-                    <p class="kpi-value">5</p>
+                    <p class="kpi-label">Comentários(Diário)</p>
+                    <p class="kpi-value" id="valorComentarios">3</p>
                 </div>
             </div>
-
-            <div class="kpi-card">
-                <div class="kpi-text">
-                    <p class="kpi-label">Conexões<br><span class="small">(Últimos 30 dias)</span></p>
-                    <p class="kpi-value">15</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Criando o gráfico -->
-
-
-
-        <!-- Incluindo o chart js -->
 
 </body>
 
 </html>
 
 <script>
-var contexto = document.getElementsByClassName("bar-chart")[0]; // pega o primeiro elemento com a classe "bar-chart"
 
-var grafico = new Chart(contexto, {
-    type: 'bar', // definindo o tipo de gráfico
-    data: {
-        labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"], // definição das labels
-        datasets: [{
-            data: [30, 10, 5, 12, 22, 22], // dados que serão plotados
-            borderWidth: 6,
-            // borderColor: 'rgba(0,0, 0,0)',
-            backgroundColor: ['#8be9e6'],
-        }]
-    },
-    options: {
-        plugins: {
-            legend:{
-                display: false
-            },
-            title: {
-                display: true,
-                text: 'Conexões por mês',
-                font: {
-                    size: 18
-                }
-            }
-        }
+    //  Criando o gráfico
+
+    const idUsuario = sessionStorage.getItem('idUsuario');
+
+    if (!idUsuario) {
+        alert("Usuário não logado!");
+        window.location.href = "./index.html";
     }
-});
+
+    // Atualizar KPIs diárias (curtidas e comentários)
+    fetch(`/dashboard/kpis-diarias/${idUsuario}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('valorCurtidas').textContent = data.curtidas;
+            document.getElementById('valorComentarios').textContent = data.comentarios;
+        })
+        .catch(err => console.error("Erro ao carregar KPIs diárias:", err));
+
+    // Atualizar gráfico com dados mensais
+    fetch(`/dashboard/dados-mensais/${idUsuario}`)
+        .then(res => res.json())
+        .then(data => {
+            const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+            let postagensPorMes = Array(12).fill(0);
+            let curtidasPorMes = Array(12).fill(0);
+
+            data.postagens.forEach(p => {
+                postagensPorMes[p.mes - 1] = p.total;
+            });
+            data.curtidas.forEach(c => {
+                curtidasPorMes[c.mes - 1] = c.total;
+            });
+
+            var contexto = document.getElementsByClassName("bar-chart")[0];
+
+            new Chart(contexto, {
+                type: 'line',
+                data: {
+                    labels: meses,
+                    datasets: [
+                        {
+                            label: 'Postagens',
+                            data: postagensPorMes,
+                            borderWidth: 3,
+                            borderColor: '#40E0D0',
+                            backgroundColor: 'rgba(64, 224, 208, 0.2)',
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Curtidas',
+                            data: curtidasPorMes,
+                            borderWidth: 3,
+                            borderColor: '#654321',
+                            backgroundColor: 'rgba(101, 67, 33, 0.2)',
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true
+                        },
+                        title: {
+                            display: true,
+                            text: 'Postagens e Curtidas por Mês',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(err => console.error("Erro ao carregar gráfico mensal:", err));
+
+
+
+//     var contexto = document.getElementsByClassName("bar-chart")[0]; // pega o primeiro elemento com a classe "bar-chart"
+
+//    var grafico = new Chart(contexto, {
+//     type: 'line', // tipo de gráfico: linha
+//     data: {
+//         labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"], // meses no eixo x
+//         datasets: [
+//             {
+//                 label: 'Postagens',
+//                 data: [30, 10, 15, 12, 22, 22], // dados de postagens
+//                 borderWidth: 3,
+//                 borderColor: '#40E0D0',
+//                 backgroundColor: 'rgba(64, 224, 208, 0.2)', 
+//                 fill: false,
+//                 tension: 0.4
+//             },
+//             {
+//                 label: 'Curtidas',
+//                 data: [25, 18, 20, 14, 28, 35], // dados de curtidas
+//                 borderWidth: 3,
+//                 borderColor: '#654321', // marrom escuro
+//                 backgroundColor: 'rgba(101, 67, 33, 0.2)', // marrom escuro com transparência
+//                 fill: false,
+//                 tension: 0.4
+//             }
+//         ]
+//     },
+//     options: {
+//         plugins: {
+//             legend: {
+//                 display: true
+//             },
+//             title: {
+//                 display: true,
+//                 text: 'Postagens e Curtidas por Mês',
+//                 font: {
+//                     size: 18
+//                 }
+//             }
+//         },
+//         scales: {
+//             y: {
+//                 beginAtZero: true
+//             }
+//         }
+//     }
+// });
 
 </script>

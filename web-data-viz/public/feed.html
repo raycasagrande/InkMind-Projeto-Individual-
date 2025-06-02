@@ -64,7 +64,7 @@
             </div>
             <br>
             <div class="post-actions">
-              <button class="like-btn">❤️ Curtir</button> <!-- Botão de curtida -->
+              <button class="like-btn" onclick="curtirPostagem(1)">❤️ Curtir</button> <!-- Botão de curtida -->
             </div>
             <div class="comments">
               <div class="comment">@misterclassic: A lealdade entre Harry, Rony e Hermione sempre me emociona. Uma
@@ -154,6 +154,49 @@
         .catch(err => console.error("Não postou"));
 
     }
+
+    // Pega as postagens no bd
+
+    function buscarPostagem() {
+  const idUsuario = sessionStorage.getItem('idUsuario');
+
+  fetch(`/postagem/buscarPostagem/${idUsuario}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log("Postagens:", data);
+      // Aqui você pode montar o HTML dinamicamente com os posts recebidos
+    })
+    .catch(err => {
+      console.error("Erro ao buscar postagens:", err);
+    });
+}
+
+
+    // Armazenar curtidas
+
+    function curtirPostagem(idPostagem) {
+  const idUsuario = sessionStorage.getItem('idUsuario');
+
+  fetch('/curtida/registrar', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      idUsuario: idUsuario,
+      idPostagem: idPostagem
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log('Curtida registrada:', data);
+    // Atualizar visualmente ou recarregar a contagem de curtidas
+  })
+  .catch(err => {
+    console.error('Erro ao registrar curtida:', err);
+  });
+}
+
   </script>
 
 

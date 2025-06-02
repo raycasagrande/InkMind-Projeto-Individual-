@@ -11,7 +11,7 @@ router.post("/publicarPostagem", function (req, res) {
 
 // Rota para buscar postagens
 
-router.post("/buscarPostagem", function (req, res) {
+router.get("/buscarPostagem/:idUsuario", function (req, res) {
     postController.buscarPostagem(req, res);
 })
 

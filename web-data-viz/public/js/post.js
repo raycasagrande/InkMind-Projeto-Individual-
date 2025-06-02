@@ -27,7 +27,7 @@ function publicarPostagem() {
       return resposta.json();
     })
     .then(data => {
-      alert(data.mensagem || "Postagem publicada com sucesso!");
+      // alert(data.mensagem || "Postagem publicada com sucesso!");
       document.getElementById("input_comentario").value = ""; // limpa o campo
 
       buscarPostagem();
@@ -96,7 +96,7 @@ function publicarComentario() {
       return resposta.json();
     })
     .then(data => {
-      alert(data.mensagem || "Postagem publicada com sucesso!");
+      // alert(data.mensagem || "Postagem publicada com sucesso!");
       document.getElementById("input_comentario").value = ""; // limpa o campo
     })
     .catch(erro => {
