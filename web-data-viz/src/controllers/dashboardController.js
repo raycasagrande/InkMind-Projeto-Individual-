@@ -1,8 +1,12 @@
-var database = require('../database/config');
+var database = require('../database/config'); // Importação de dependências
+
+// Função para obter kpis
 
 function obterKpisDiarias(req, res) {
-    var idUsuario = req.params.idUsuario;
-    console.log("ID recebido:", idUsuario);
+    var idUsuario = req.params.idUsuario; // Pega o id do usuário 
+    console.log("ID recebido:", idUsuario); // Para verificar se está entrando na função
+
+    // select no BD para pegar as curtidas
 
     var instrucaoCurtidas = `
         SELECT COUNT(*) AS total 
@@ -11,6 +15,8 @@ function obterKpisDiarias(req, res) {
         AND fkUsuario = ${idUsuario};
     `;
 
+    // select no BD para pegar as comentários
+
     var instrucaoComentarios = `
         SELECT COUNT(*) AS total 
         FROM comentario 
@@ -18,17 +24,23 @@ function obterKpisDiarias(req, res) {
         AND fkUsuario = ${idUsuario};
     `;
 
+     // Executa a consulta de curtidas
+
     database.executar(instrucaoCurtidas).then(function (resultadoCurtidas) {
-        var totalCurtidas = resultadoCurtidas[0].total;
+        var totalCurtidas = resultadoCurtidas[0].total; // Armazena o total de curtidas retornado pelo banco
+
+        // Executa a consulta de comentários
 
         database.executar(instrucaoComentarios).then(function (resultadoComentarios) {
-            var totalComentarios = resultadoComentarios[0].total;
+            var totalComentarios = resultadoComentarios[0].total; // Armazena o total de comentários retornado
+
+            // Retorna os dados em JSON com status 200 (requisição bem sucedida)
 
             res.status(200).json({
                 curtidas: totalCurtidas,
                 comentarios: totalComentarios
             });
-        }).catch(function (erro) {
+        }).catch(function (erro) { // Captura erro na consulta de curtidas
             console.error("Erro ao buscar comentários:", erro);
             res.status(500).json({ erro: "Erro ao buscar comentários" });
         });
@@ -73,6 +85,8 @@ function obterDadosMensais(req, res) {
         res.status(500).json({ erro: "Erro ao buscar postagens mensais" });
     });
 }
+
+// Exporta as funções para uso externo 
 
 module.exports = {
     obterKpisDiarias,
