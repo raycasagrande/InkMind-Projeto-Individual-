@@ -1,166 +1,158 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Italianno&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
-
-  margin: 0;
-  /* Tira a margem padrão do corpo da página */
   font-family: "Open Sans", sans-serif;
-  background: #c4a889;
-  overflow-x: hidden;
+  background-color:#f7e5d3;
+  margin: 0;
+  padding: 2rem;
+  color: #332920;
+}
 
+
+/* Definindo os conteúdos do perfil  */
+
+.profile-container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info .name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.username {
+  color: #332920;
+  margin: 0.2rem 0;
+}
+
+.bio {
+  font-family: "Italianno", cursive;
+  margin-top: 0.5rem;
+  color: #332920;
+  font-size: 25px;
+  margin-bottom: 0.8rem;
+}
+
+.metrics {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.metrics span {
+  font-weight: 500;
+}
+
+.post-feed {
+  margin-top: 2rem;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Espaçamento entre postagens */
+  padding: 20px;
+}
+
+.post {
+  background-color: #ffffff; /* cor de fundo do retângulo */
+  border-radius: 15px;        /* cantos arredondados */
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* sombra leve */
+  border: 1px solid #e0e0e0;  /* borda sutil */
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.metrics {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.metrics span {
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.metrics span:hover {
+  color: #0ABAB5; /* tom azul agradável */
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+/* Fazendo a barra lateral */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #d7a36e;
+  border-right: 1px solid #ddd;
+  box-shadow: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #333;
 }
 
 .menu {
-
-  display: flex;
-  width: 100%;
-  height: 40px;
-  flex-direction: row;
-  align-items: center;
-}
-
-.bar{
-
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  border-bottom: solid 5px;
-}
-
-.menu-2 {
-
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
-}
-
-.menu-2 a {
-
-
-   font-family: "Italianno", cursive;
-   font-size: 30px;
-   font-weight:400;
-   color:  #332920;
-   text-decoration: none;
-}
-
-.menu-2 a:hover {
-
-  text-decoration:underline;
-  color:#965c29;
-  transition: 0.3s ease;
-}
-
-.cover {
-
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  /* Posiciona elementos filhos com posição absoluta (como a foto de perfil) */
-  width: 100%;
-  /* Largura total da tela */
-  height: 300px;
-  /* Corresponde a altura da área de capa */
-  background-color: #ccc;
-  /* Cor de fundo cinza, caso a imagem da capa não carregue */
-}
-
-.cover-img {
-
-  width: 100%;
-  /* A imagem da capa ocupa toda a largura disponível */
-  height: 100%;
-  /* A altura da imagem da capa acompanha a altura da seção */
-  object-fit: cover;
-  /* A imagem da capa preenche o espaço sem distorcer, cortando o excesso */
-}
-
-.foto-perfil-container {
-
-  position: absolute;
-  /*Posição absoluta dentro do cabeçalho*/
-  display: flex;
-  bottom: -60px;
-  /* Move a foto do usuário para baixo, “saindo” da seção da capa */
-  /* Distância da borda esquerda */
-  border: 5px solid white;
-  /* Borda branca ao redor da imagem de perfil */
-  border-radius: 50%;
-  /* Deixa o contâiner do ícone do usuário completamente redondo */
-  overflow: hidden;
-  /* Corta qualquer parte da imagem que ultrapassar o contêiner */
-  width: 120px;
-  height: 120px;
-  /* Tamanho fixo da imagem de perfil */
-  background: white;
-  /* Cor de fundo branca para garantir contraste */
-}
-
-.foto-perfil {
-
-  width: 20%;
-  height: 20%;
-  object-fit: cover;
-  /* Garante que a imagem preencha totalmente o círculo sem distorcer */
-}
-
-.informacoes {
-
-  padding-bottom: 70px;
-  padding-top: 70px;
-  /* Espaçamento interno:
-     - 80px em cima (para compensar a imagem que ficou sobre a capa),
-     - 30px nas laterais,
-     - 20px embaixo */
-
-  background: white;
-  /* Fundo branco para destacar do restante da página */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Sombra leve para dar profundidade */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 15px;
   width: 100%;
 }
 
-.informacoes h1 {
-
-  margin: 0;
-  /* Remove a margem padrão do título */
-  font-size: 24px;
-
+.menu a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-.user {
-
-  color: #332920;
-  /* Cor do nome de usuário */
-  margin-bottom: 10px;
-  /* Espaçamento abaixo do nome de usuário */
-  
-}
-
-.buttons {
-
-  display: flex;
-  /* Organiza os botões em linha */
-  gap: 10px;
-  /* Espaço entre os botões */
-}
-
-.buttons button {
-
-  padding: 8px 12px;
-  /* Espaçamento interno dos botões */
-  border: none;
-  /* Remove a borda padrão */
-  background-color: #dea054;
-  /* Cor de fundo do botão */
-  border-radius: 8px;
-  /* Borda levemente arredondada */
-  cursor: pointer;
-  /* Muda o cursor ao passar por cima, indicando que é clicável */
+.menu a:hover {
+  color: #0ABAB5;
 }

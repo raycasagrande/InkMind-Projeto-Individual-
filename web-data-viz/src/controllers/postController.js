@@ -7,7 +7,7 @@ function publicarPostagem(req, res) {
 
   postModel.publicarPostagem(comentario, idUsuario)
     .then((resultadoUsuarios) => {
-      console.log("Resultado do banco:", resultadoUsuários)
+      console.log("Resultado do banco:", resultadoUsuarios)
         res.json({
           idUsuario: resultadoUsuarios.insertId,
         });
@@ -28,7 +28,7 @@ function buscarPostagem(req, res) {
 
   postModel.buscarPostagem(idUsuario)
     .then((resultadosPostagem) => {
-      console.log("Resultado do banco: resultadoUsuários")
+      console.log("Resultado do banco: resultadoUsuarios")
         res.json({
           publicacoes: resultadosPostagem,
         });

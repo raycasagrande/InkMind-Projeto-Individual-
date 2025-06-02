@@ -91,7 +91,7 @@ html {
 }
 
 .sidebar a:hover {
-  background-color: #A0522D;
+  background-color: #0ABAB5;
   /* marrom mais claro no hover */
   transform: scale(1.05);
   text-decoration: underline;

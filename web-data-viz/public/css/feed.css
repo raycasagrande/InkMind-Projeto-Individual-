@@ -40,7 +40,7 @@ body {
 
 .menu a:hover {
   text-decoration: underline;
-  color: #965c29;
+  color: #0ABAB5;
 }
 
 .main-content {
@@ -111,7 +111,7 @@ body {
 
 .username:hover {
   text-decoration: underline;
-  color: #965c29;
+  color: #0ABAB5;
 } 
 
 .user-name {
@@ -127,7 +127,7 @@ body {
 
 .user-name:hover{
 text-decoration: underline;
-color: #965c29;
+color: #0ABAB5;
 }
 
 .user-icon {
@@ -136,7 +136,7 @@ color: #965c29;
   height: 80px;
   border-radius: 50%;
   margin: 0 auto 20px auto;
-  background-image: url(../assets/icon/icon.jpg);
+  background-image: url(../assets/icon/defi.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -163,7 +163,7 @@ color: #965c29;
 
 .like-btn:hover {
   background-color: #965c29;
-  color: white;
+  color: #0ABAB5;
 }
 
 .comments {
@@ -241,7 +241,7 @@ color: #965c29;
 
 .publish-btn:hover {
   background-color: #965c29;
-  color: white;
+  color: #0ABAB5;
 }
 
 /* Username como link */
@@ -253,7 +253,7 @@ color: #965c29;
 
 .username:hover {
   text-decoration: underline;
-  color: #965c29;
+  color: #0ABAB5;
 }
 
 .caixa-nova-publicacao {
@@ -294,5 +294,5 @@ color: #965c29;
 }
 
 #botao:hover {
-  background-color: #8be9e6;
+  background-color: #0ABAB5;
 }

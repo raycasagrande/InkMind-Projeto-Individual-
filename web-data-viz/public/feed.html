@@ -9,6 +9,7 @@
 
   <link rel="stylesheet" href="./css/feed.css"> <!-- Importa a estilização CSS -->
   <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon"> <!-- Define o ícone que aparece na aba -->
+  
   <script src="./js/post.js"></script> <!-- Importa o script da lógica de postagens no feed -->
 </head>
 
@@ -34,7 +35,8 @@
 
       <main class="main-content">
         <div class="top-bar">
-          <h1 class="brand">InkMind</h1> <!-- A class brand é um atributo global que permite agrupar elementos com a mesma finalidade para estilização com css -->
+          <h1 class="brand">InkMind</h1>
+          <!-- A class brand é um atributo global que permite agrupar elementos com a mesma finalidade para estilização com css -->
 
         </div>
 
@@ -44,7 +46,7 @@
           <input type="text" id="input_comentario" placeholder="Nos conte sua história">
           <button id="botao">Publicar</button>
         </div>
-        
+
 
         <!-- Container que define o que cada post terá -->
 
@@ -52,7 +54,7 @@
           <div class="post">
             <div class="post-header">
               <div class="post-header">
-                <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar"> <!-- Icon do usuário -->
+                <img class="avatar" src="./assets/icon/icon.jpg" alt="Avatar"> <!-- Icon do usuário -->
                 <span class="username">@book.girl</span> <!-- Nick do usuário -->
               </div>
 
@@ -75,7 +77,8 @@
                 trio é o coração de Hogwarts</div>
             </div>
             <div class="comment-box">
-              <input class="comment-input" type="text" placeholder="Escreva um comentário..."> <!-- Campo para novo comentário -->
+              <input class="comment-input" type="text" placeholder="Escreva um comentário...">
+              <!-- Campo para novo comentário -->
             </div>
           </div>
 
@@ -120,7 +123,7 @@
 
     botao.addEventListener("click", publicarPostagem);
 
-    function publicarComentario() {
+    function publicarPostagem() {
 
       // Valida se o campo não está vazio
 
@@ -149,6 +152,9 @@
       })
         .then(res => res.json()) // Converte a resposta JSON em JS
         .then(data => { // Manipula a resposta já convertida
+          console.log('Postagem enviada:', data);
+          document.getElementById("input_comentario").value = ""; // limpa o input
+          buscarPostagem(); // atualiza o feed após postar
           // alert(data.mensagem);
         })
         .catch(err => console.error("Não postou"));
@@ -158,44 +164,77 @@
     // Pega as postagens no bd
 
     function buscarPostagem() {
-  const idUsuario = sessionStorage.getItem('idUsuario');
 
-  fetch(`/postagem/buscarPostagem/${idUsuario}`)
-    .then(res => res.json())
-    .then(data => {
-      console.log("Postagens:", data);
-      // Aqui você pode montar o HTML dinamicamente com os posts recebidos
-    })
-    .catch(err => {
-      console.error("Erro ao buscar postagens:", err);
-    });
-}
+      const idUsuario = sessionStorage.getItem('idUsuario');
+
+      fetch(`/postagem/buscarPostagem/${idUsuario}`)
+        .then(res => res.json())
+        .then(data => {
+          console.log("Postagens:", data);
+
+          const divFeed = document.getElementById("div_feed");
+
+          // divFeed.innerHTML = ""; // limpa o feed antes de renderizar
+
+          data.publicacoes.forEach(post => {
+
+            const postHtml = `
+          <div class="post">
+            <div class="post-header">
+              <img class="avatar" src="./assets/icon/icon2 (1).jpg" alt="Avatar">
+              <span class="username">@${post.nomeUsuario}</span>
+            </div>
+            <div class="post-content">${post.texto}</div>
+            <br>
+            <div class="post-actions">
+              <button class="like-btn" onclick="curtirPostagem(${post.idPostagem})">❤️ Curtir</button>
+            </div>
+            <div class="comments"></div>
+            <div class="comment-box">
+              <input class="comment-input" type="text" placeholder="Escreva um comentário...">
+            </div>
+          </div>
+        `;
+
+            divFeed.innerHTML += postHtml;
+          });
+        })
+        .catch(err => {
+          console.error("Erro ao buscar postagens:", err);
+        });
+    }
+    //       // Aqui você pode montar o HTML dinamicamente com os posts recebidos
+    //     })
+    //     .catch(err => {
+    //       console.error("Erro ao buscar postagens:", err);
+    //     });
+    // }
 
 
     // Armazenar curtidas
 
     function curtirPostagem(idPostagem) {
-  const idUsuario = sessionStorage.getItem('idUsuario');
+      const idUsuario = sessionStorage.getItem('idUsuario');
 
-  fetch('/curtida/registrar', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      idUsuario: idUsuario,
-      idPostagem: idPostagem
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log('Curtida registrada:', data);
-    // Atualizar visualmente ou recarregar a contagem de curtidas
-  })
-  .catch(err => {
-    console.error('Erro ao registrar curtida:', err);
-  });
-}
+      fetch('/curtida/registrar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+          idPostagem: idPostagem
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log('Curtida registrada:', data);
+          // Atualizar visualmente ou recarregar a contagem de curtidas
+        })
+        .catch(err => {
+          console.error('Erro ao registrar curtida:', err);
+        });
+    }
 
   </script>
 

@@ -1,190 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Perfil</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d1117;
-      color: #e6edf3;
-    }
-
-    .sidebar {
-      width: 250px;
-      height: 100vh;
-      background-color: #161b22;
-      position: fixed;
-      padding-top: 20px;
-    }
-
-    .sidebar a {
-      display: flex;
-      align-items: center;
-      padding: 15px 20px;
-      color: #c9d1d9;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .sidebar a:hover {
-      background-color: #21262d;
-      border-left: 4px solid #58a6ff;
-    }
-
-    .sidebar i {
-      margin-right: 10px;
-    }
-
-    .main-content {
-      margin-left: 260px;
-    }
-
-    .cover {
-      position: relative;
-    }
-
-    .cover-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .foto-perfil-container {
-      position: absolute;
-      bottom: -40px;
-      left: 20px;
-    }
-
-    .foto-de-perfil {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 4px solid #0d1117;
-    }
-
-    .informacoes {
-      padding: 60px 20px 20px 20px;
-    }
-
-    .informacoes h1 {
-      font-family: 'Georgia', serif;
-      font-style: italic;
-      font-size: 24px;
-    }
-
-    .user {
-      color: #8b949e;
-      margin: 5px 0 15px 0;
-    }
-
-    .botoes button {
-      background-color: transparent;
-      border: 1px solid #8b949e;
-      color: #c9d1d9;
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .botoes button:hover {
-      background-color: #21262d;
-    }
-  </style>
+  <title>Perfil - InkMind</title>
+  <link rel="stylesheet" href="./css/perfil.css" />
+  <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon">
 </head>
 <body>
-  <!-- Menu lateral -->
-  <aside class="sidebar">
-    <a href="#"><i class="fas fa-home"></i>Página Inicial</a>
-    <a href="#"><i class="fas fa-chart-line"></i>Dashboard</a>
-    <a href="#"><i class="fas fa-sign-out-alt"></i>Sair</a>
-  </aside>
+</div>
 
-  <!-- Conteúdo principal -->
-  <div class="main-content">
-    <header class="cover">
-      <img src="./assets/imgs/header.jpg" alt="Capa" class="cover-img" />
-      <div class="foto-perfil-container">
-        <img src="./assets/icon/foto.jpg" alt="Foto de Perfil" class="foto-de-perfil" />
-      </div>
-    </header>
+<!-- Definindo os demais conteúdos do perfil -->
+ 
+  <div class="profile-container">
+    <div class="profile-header">
+      <img src="./assets/icon/defi.jpg" alt="Avatar" class="avatar" />
+      <div class="profile-info">
+        <h2 class="name">Rayssa Casagrande</h2>
+        <p class="username">@ray.casagrande</p>
+        <p class="bio">Apaixonada por literatura e novas histórias ✨📚</p>
 
-    <main class="informacoes">
-      <h1>Rayssa Souza</h1>
-      <p class="user">@ray.casagrande</p>
-      <div class="botoes">
-        <button>Meus Livros</button>
+        <div class="metrics">
+          <span><strong>218</strong> seguidores</span>
+          <span><strong>174</strong> seguindo</span>
+          <span><strong>1.234</strong> curtidas</span>
+        </div>
       </div>
-    </main>
+    </div>
+
+    <div class="post-feed">
+      <div class="post">
+        <p>A forma como a J.K. Rowling transmite o valor da amizade é simplesmente mágica.</p>
+      </div>
+      <div class="post">
+        <p>“Sob o Olhar do Lobo” me deixou completamente sem chão. Uma leitura densa e marcante.</p>
+      </div>
+      <div class="post">
+        <p>Comecei hoje “A Biblioteca da Meia-Noite” — reflexões poderosas sobre escolhas e arrependimentos.</p>
+      </div>
+    </div>
   </div>
+
+  <!-- Estrutura do menu lateral -->
+
+  <aside class="sidebar">
+  <!-- Ícone do usuário -->
+  <a href="#">
+  <img class="user-icon" src="./assets/icon/defi.jpg" alt="Avatar do usuário">
+</a>
+
+  <!-- Nome do usuário -->
+
+  <a href="../public/perfil.html" class="user-name">@ray.casagrande</a>
+
+  <!-- Menu de navegação -->
+  <nav class="menu">
+    <a href="./feed.html">Feed</a>
+    <a href="./perfil.html">Perfil</a>
+    <a href="./dash.html">Dashboard</a>
+    <a href="./index.html">Sair</a>
+  </nav>
+</aside>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="./css/perfil.css">
-    <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon">
-
-    <title>Perfil</title>
-
-</head>
-<body> -->
-
-        <!-- Menu lateral -->
-<!-- 
-    <main class="menu"> -->
-
-        <!-- <aside class="bar"> Tag que indica o menu lateral -->
-      
-      <!-- <nav class="menu-2"> Agrupamento de links de navegação -->
-        <!-- <a href="./feed.html">Página Inicial</a>
-        <a href="./dash.html">Dashboard</a>
-        <a href="./index.html">Sair</a>
-      </nav>
-    </aside>
-    </main> -->
-
-    <!-- Estrutura do cabeçalho do perfil -->
-
-    <!-- <header class="cover"> Classe usada para estilizar a área da capa do perfil -->
-
-        <!-- <img src="./assets/imgs/header.jpg" alt="capa" class="cover-img"> -->
-
-        <!-- <div class="foto-perfil-container"> Container para a foto de perfil -->
-
-         <!-- <img src="./assets/icon/foto.jpg" alt="foto-perfil" class="foto-de-perfil">   
-        </div>
-    </header> -->
-
-    <!-- Informações do perfil -->
-
-    <!-- <main class="informacoes">
-
-        <h1>Rayssa Souza</h1>
-
-        <p class="user">@ray.casagrande</p> Parágrafo com o nome de usuário -->
-
-        <!-- <div class="botoes">
-
-            <button>Meus Livros</button>
-
-        </div>
-    </main>
-
-</body>
-</html> -->
