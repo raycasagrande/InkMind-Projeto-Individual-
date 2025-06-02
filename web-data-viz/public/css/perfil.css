@@ -1,45 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Italianno&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+
+/* Estilo do corpo */
+
 body {
-  font-family: "Open Sans", sans-serif;
-  background-color:#f7e5d3;
-  margin: 0;
-  padding: 2rem;
-  color: #332920;
+  font-family: "Open Sans", sans-serif; /* Fonte padrão para o corpo */
+  background-color: #f7e5d3;            /* Cor de fundo bege clara */
+  margin: 0;                            /* Remove margem externa */
+  padding: 32px;                        /* Espaço interno ao redor do conteúdo */
+  color: #332920;        
+  font-size: 16px;               /* Cor do texto principal */
 }
 
-
-/* Definindo os conteúdos do perfil  */
+/* Estilo do container de perfil */
 
 .profile-container {
-  max-width: 600px;
-  margin: auto;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
+
+  max-width: 600px; /* Largura máxima do perfil */
+  margin: auto; /* Centraliza horizontalmente */
+  background: #fff; /* Fundo branco */
+  border-radius: 12px;  /* Cantos arredondados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  padding: 32px; /* Espaço interno */
 }
+
+/* Estilo do cabeçalho/header */
 
 .profile-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1rem;
+  display: flex;                        /* Layout flexível em linha */
+  align-items: center;                 /* Alinha verticalmente ao centro */
+  gap: 24px;                            /* Espaço entre avatar e info */
+  border-bottom: 1px solid #eee;       /* Linha divisória inferior */
+  padding-bottom: 16px;                /* Espaçamento inferior */
 }
+
+
+/* Icon do usuário */
 
 .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 120px;                         /* Largura da imagem */
+  height: 120px;                        /* Altura da imagem */
+  border-radius: 50%;                  /* Torna a imagem circular */
+  object-fit: cover;                   /* Corta e ajusta a imagem no espaço */
 }
 
+/* Informações do perfil do usuário */
+
 .profile-info .name {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: bold;
+  margin: 0;                            /* Remove margens */
+  font-size: 24px;                      /* Tamanho da fonte do nome */
+  font-weight: bold;                   /* Deixa o nome em negrito */
 }
+
+.username {
+  color: #332920;                      /* Cor escura para o nome de usuário */
+  margin: 4px 0;                        /* Espaço vertical */
+}
+
+.bio {
+  font-family: "Italianno", cursive;
+  margin-top: 8px;
+  color: #332920;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
 
 .username {
   color: #332920;
@@ -47,112 +72,112 @@ body {
 }
 
 .bio {
-  font-family: "Italianno", cursive;
-  margin-top: 0.5rem;
-  color: #332920;
-  font-size: 25px;
-  margin-bottom: 0.8rem;
+  font-family: "Italianno", cursive;   /* Fonte cursiva para bio */
+  margin-top: 8px;                      /* Espaço acima */
+  color: #332920;                      /* Cor escura */
+  font-size: 25px;                      /* Tamanho grande para bio */
+  margin-bottom: 12px;                  /* Espaço abaixo */
 }
 
+/* Estilização das métricas do perfil */
+
 .metrics {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.95rem;
-  color: #444;
+  display: flex;                        /* Layout flexível */
+  gap: 24px;                            /* Espaço entre métricas */
+  font-size: 15px;                      /* Tamanho da fonte das métricas */
+  color: #444;                         /* Cor de texto escura */
 }
 
 .metrics span {
-  font-weight: 500;
-}
-
-.post-feed {
-  margin-top: 2rem;
-}
-
-.feed {
-  display: flex;
-  flex-direction: column;
-  gap: 50px; /* Espaçamento entre postagens */
-  padding: 20px;
-}
-
-.post {
-  background-color: #ffffff; /* cor de fundo do retângulo */
-  border-radius: 15px;        /* cantos arredondados */
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* sombra leve */
-  border: 1px solid #e0e0e0;  /* borda sutil */
-}
-
-.post:last-child {
-  border-bottom: none;
-}
-
-.metrics {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.95rem;
-  color: #444;
-}
-
-.metrics span {
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  font-weight: 500;                    /* Peso médio da fonte */
+  transition: all 0.3s ease;           /* Animação suave para hover */
+  cursor: pointer;                     /* Mostra cursor de clique */
 }
 
 .metrics span:hover {
-  color: #0ABAB5; /* tom azul agradável */
-  text-decoration: underline;
-  transform: scale(1.05);
+  color: #0ABAB5;                      /* Muda para azul Tiffany ao passar o mouse */
+  text-decoration: underline;          /* Sublinha ao passar o mouse */
+  transform: scale(1.05);              /* Aumenta levemente o tamanho */
 }
 
-/* Fazendo a barra lateral */
+/* Feed de postagens */
+
+.post-feed {
+  margin-top: 32px;                     /* Espaço acima do feed */
+}
+
+.feed {
+  display: flex;                        /* Layout em coluna */
+  flex-direction: column;              /* Direção vertical */
+  gap: 50px;                            /* Espaço entre postagens */
+  padding: 20px;                        /* Espaço interno do feed */
+}
+
+.post {
+  background-color: #ffffff;           /* Fundo branco para postagens */
+  border-radius: 15px;                 /* Cantos arredondados */
+  padding: 20px;                        /* Espaçamento interno */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra leve */
+  border: 1px solid #e0e0e0;           /* Borda cinza clara */
+}
+
+.post:last-child {
+  border-bottom: none;                 /* Remove linha do último post */
+}
+
+
+/* Fazendo a barra lateral fixa */
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 220px;
-  height: 100vh;
-  background-color: #d7a36e;
-  border-right: 1px solid #ddd;
-  box-shadow: 5px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  position: fixed;                     /* Fixa a barra lateral na tela */
+  top: 0;                              /* Alinha ao topo */
+  left: 0;                             /* Alinha à esquerda */
+  width: 220px;                        /* Largura da barra */
+  height: 100vh;                       /* Altura total da tela */
+  background-color: #d7a36e;           /* Cor de fundo caramelo */
+  border-right: 1px solid #ddd;        /* Linha divisória à direita */
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.05); /* Sombra lateral */
+  padding: 20px;                       /* Espaço interno */
+  display: flex;                       /* Layout flexível */
+  flex-direction: column;             /* Direção vertical */
+  align-items: flex-start;            /* Alinha à esquerda */
 }
+
+/* Icon do usuário na barra lateral */
 
 .user-icon {
-  width: 60px;
+  width: 60px;                         /* Tamanho do ícone */
   height: 60px;
-  background-color: #bbb;
-  border-radius: 50%;
-  margin-bottom: 10px;
+  background-color: #bbb;             /* Fundo cinza */
+  border-radius: 50%;                 /* Forma circular */
+  margin-bottom: 10px;                /* Espaço abaixo do ícone */
 }
+
+/* Nome do usuário na barra lateral */
 
 .user-name {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-decoration: none;
-  color: #333;
+  font-weight: bold;                  /* Negrito */
+  font-size: 16px;                    /* Tamanho da fonte */
+  margin-bottom: 20px;                /* Espaço abaixo do nome */
+  text-decoration: none;              /* Sem sublinhado */
+  color: #333;                        /* Cor do texto */
 }
 
+/* Menu da barra lateral */
+
 .menu {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
+  display: flex;                       /* Layout flexível */
+  flex-direction: column;             /* Itens em coluna */
+  gap: 15px;                           /* Espaço entre itens */
+  width: 100%;                         /* Ocupa toda a largura */
 }
 
 .menu a {
-  color: #333;
-  text-decoration: none;
-  font-size: 16px;
+  color: #333;                        /* Cor dos links */
+  text-decoration: none;              /* Sem sublinhado */
+  font-size: 16px;                    /* Tamanho da fonte */
 }
 
 .menu a:hover {
-  color: #0ABAB5;
+  color: #0ABAB5;                     /* Cor azul Tiffany no hover */
 }

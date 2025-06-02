@@ -3,39 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Perfil - InkMind</title>
-  <link rel="stylesheet" href="./css/perfil.css" />
-  <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon">
+  <title>Perfil - InkMind</title> <!-- Nome da aba do navegador -->
+  <link rel="stylesheet" href="./css/perfil.css" /> <!-- Importa o css correspondente -->
+  <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon"> <!--Ícone da aba -->
 </head>
 <body>
-</div>
 
-<!-- Definindo os demais conteúdos do perfil -->
+<!-- Bloco do perfil -->
  
-  <div class="profile-container">
-    <div class="profile-header">
-      <img src="./assets/icon/defi.jpg" alt="Avatar" class="avatar" />
-      <div class="profile-info">
+  <div class="profile-container"> <!-- Container principal -->
+    <div class="profile-header"> <!-- Cabeçalho com informações e icon -->
+      <img src="./assets/icon/defi.jpg" alt="Avatar" class="avatar" /> <!-- Icon -->
+      <div class="profile-info"> <!-- Informações do usuário -->
         <h2 class="name">Rayssa Casagrande</h2>
         <p class="username">@ray.casagrande</p>
         <p class="bio">Apaixonada por literatura e novas histórias ✨📚</p>
 
+        <!-- Métricas do perfil -->
+
         <div class="metrics">
-          <span><strong>218</strong> seguidores</span>
-          <span><strong>174</strong> seguindo</span>
-          <span><strong>1.234</strong> curtidas</span>
+          <span><strong>218</strong> seguidores</span> <!-- Total de seguidores -->
+          <span><strong>174</strong> seguindo</span> <!-- Total de pessoas que ela segue -->
+          <span><strong>1.234</strong> curtidas</span> <!-- Total de curtidas feitas -->
         </div>
       </div>
     </div>
 
+    <!-- Início do feed de postagens -->
+
     <div class="post-feed">
-      <div class="post">
+      <div class="post"> <!-- Primeira postagem -->
         <p>A forma como a J.K. Rowling transmite o valor da amizade é simplesmente mágica.</p>
       </div>
-      <div class="post">
+
+      <div class="post"><!-- Segunda postagem -->
         <p>“Sob o Olhar do Lobo” me deixou completamente sem chão. Uma leitura densa e marcante.</p>
       </div>
-      <div class="post">
+
+      <div class="post"> <!-- Terceira postagem -->
         <p>Comecei hoje “A Biblioteca da Meia-Noite” — reflexões poderosas sobre escolhas e arrependimentos.</p>
       </div>
     </div>
@@ -44,16 +49,15 @@
   <!-- Estrutura do menu lateral -->
 
   <aside class="sidebar">
-  <!-- Ícone do usuário -->
-  <a href="#">
+  
+  <a href="#"> <!-- Icone do usuário -->
   <img class="user-icon" src="./assets/icon/defi.jpg" alt="Avatar do usuário">
 </a>
 
-  <!-- Nome do usuário -->
-
-  <a href="../public/perfil.html" class="user-name">@ray.casagrande</a>
+<a href="../public/perfil.html" class="user-name">@ray.casagrande</a> <!-- Nome do usuário -->
 
   <!-- Menu de navegação -->
+   
   <nav class="menu">
     <a href="./feed.html">Feed</a>
     <a href="./perfil.html">Perfil</a>
