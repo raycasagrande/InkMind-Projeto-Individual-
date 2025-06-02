@@ -1,161 +1,181 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Italianno&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+HU:wght@100..400&display=swap');
 
+/* Estilização base */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  margin: 0; /* Remove margens padrão de todos os elementos */
+  padding: 0; /* Remove preenchimentos padrão */
+  box-sizing: border-box; /* Inclui borda e padding no cálculo de largura/altura */
+  font-family: "Open Sans", sans-serif; /* Define a fonte padrão */
 }
 
 body,
 html {
-  height: 100%;
-  font-family: "Open Sans", sans-serif;
+  height: 100%; /* Faz o body e html ocuparem toda a altura da tela */
+  font-family: "Open Sans", sans-serif; /* Redefine a fonte para garantir consistência */
 }
+
+
+/* Container principal da dashboard */
 
 .container {
-  display: flex;
-  height: 100vh;
+  display: flex; /* Cria um layout flexível em linha */
+  height: 100vh; /* Altura total da viewport */
 }
+
+
+/* Barra lateral esquerda */
 
 .sidebar {
-  width: 200px;
-  background-color: #f7e4b9;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 200px; /* Largura fixa da sidebar */
+  background-color: #f7e4b9; /* Cor de fundo (bege) */
+  color: white; /* Cor do texto */
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Itens organizados em coluna */
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  transition: background-color 0.3s, transform 0.2s; /* Transição suave de cor e escala */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor da sidebar */
 }
+
+/* Logo */
 
 .logo {
-  text-align: center;
-  font-family: 'Italianno', cursive;
-  /* ou qualquer outra fonte estilizada */
-  font-size: 40px;
-  color: #8B4513;
-  /* marrom */
-  margin-bottom: 20px;
-  margin-top: 10px;
-
+  text-align: center; /* Centraliza o texto */
+  font-family: 'Italianno', cursive; /* Fonte estilizada cursiva */
+  font-size: 40px; /* Tamanho grande para destaque */
+  color: #8B4513; /* Cor marrom escura */
+  margin-bottom: 20px; /* Espaço inferior */
+  margin-top: 10px; /* Espaço superior */
 }
+
+/* Parte principal do conteúdo */
 
 .content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f2f2f2;
-  background-image: url(../assets/imgs/Livros.png);
-  background-size: cover;
-  background-position: center;
-  /* opacity: 0.1; */
-  z-index: -1;
+  flex: 1; /* Ocupa o restante do espaço disponível */
+  display: flex; /* Flexbox para centralizar conteúdo */
+  justify-content: center; /* Alinha conteúdo no centro horizontalmente */
+  align-items: center; /* Alinha conteúdo no centro verticalmente */
+  background-color: #f2f2f2; /* Fundo cinza claro */
+  background-image: url(../assets/imgs/Livros.png); /* Imagem de fundo */
+  background-size: cover; /* Cobre toda a área */
+  background-position: center; /* Centraliza a imagem */
+  z-index: -1; /* Coloca o conteúdo atrás de outros elementos (talvez não necessário aqui) */
 }
+
+/* Caixa do gráfico */
 
 .box-central {
-  width: 140vh;
-  height: 90vh;
-  background-color: #f7e5d3;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  border: 3px solid #5A2E0C;
+  width: 140vh; /* Largura proporcional à altura da tela */
+  height: 90vh; /* Altura proporcional à tela */
+  background-color: #f7e5d3; /* Cor bege clara */
+  border-radius: 12px; /* Bordas arredondadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  display: flex; /* Flexbox */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  color: white; /* Cor do texto */
+  font-size: 24px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  border: 3px solid #5A2E0C; /* Borda marrom escura */
 }
+
+/* Links do menu lateral */
 
 .sidebar a {
-
-  font-family: "Open Sans", sans-serif;
-  display: block;
-  width: 90%;
-  padding: 10px 15px;
-  margin: 10px auto;
-  background-color: #8B4513;
-  /* marrom principal */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-
+  font-family: "Open Sans", sans-serif; /* Fonte padrão */
+  display: block; /* Ocupa a linha toda */
+  width: 90%; /* Largura quase total da sidebar */
+  padding: 10px 15px; /* Espaçamento interno */
+  margin: 10px auto; /* Espaço externo e centralizado */
+  background-color: #8B4513; /* Cor marrom escura */
+  color: white; /* Texto branco */
+  border: none; /* Sem borda */
+  border-radius: 8px; /* Borda arredondada */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Mãozinha ao passar o mouse */
+  text-decoration: none; /* Remove sublinhado padrão */
 }
 
+/* Efeitos de interação com os links */
+
 .sidebar a:hover {
-  background-color: #0ABAB5;
-  /* marrom mais claro no hover */
-  transform: scale(1.05);
-  text-decoration: underline;
+  background-color: #0ABAB5; /* Cor turquesa no hover */
+  transform: scale(1.05); /* Aumenta levemente o botão */
+  text-decoration: underline; /* Sublinhado no hover */
 }
 
 .sidebar a:active {
-  background-color: #5A2E0C;
-  /* marrom mais escuro ao clicar */
+  background-color: #5A2E0C; /* Cor mais escura ao clicar */
 }
+
+/* Container das KPI's */
 
 .kpis-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin: 30px auto;
-  justify-content: center;
-  background-color: #f7e4b9;
-  padding: 20px;
-  margin-top: 0%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  height: 100vh; /* Altura da tela toda */
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Organiza verticalmente */
+  gap: 20px; /* Espaço entre os KPIs */
+  margin: 30px auto; /* Centraliza verticalmente */
+  justify-content: center; /* Alinha ao centro verticalmente */
+  background-color: #f7e4b9; /* Fundo bege */
+  padding: 20px; /* Espaçamento interno */
+  margin-top: 0%; /* Sem margem superior */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
 }
+
+/* Cartões individuais das KPI's */
 
 .kpi-card {
-
-  background-color: #8B4513;
-  color: white;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  width: 180px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.2s;
-  cursor: default;
-
+  background-color: #8B4513; /* Fundo marrom */
+  color: white; /* Texto branco */
+  border-radius: 8px; /* Borda arredondada */
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha verticalmente */
+  padding: 10px 15px; /* Espaçamento interno */
+  width: 180px; /* Largura fixa */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  transition: background-color 0.3s, transform 0.2s; /* Transição suave */
+  cursor: default; /* Cursor padrão */
 }
+
+/* ícone da KPI */
 
 .kpi-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
+  width: 40px; /* Largura do ícone */
+  height: 40px; /* Altura do ícone */
+  margin-right: 15px; /* Espaço entre o ícone e o texto */
 }
+
+/* Texto das kpi's */
 
 .kpi-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Empilha verticalmente */
+  justify-content: center; /* Centraliza verticalmente */
 }
+
+/* Rótulo das KPIs */
 
 .kpi-label {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-  line-height: 1.2;
+  font-size: 14px; /* Tamanho pequeno */
+  font-weight: bold; /* Negrito */
+  margin: 0; /* Remove margem */
+  line-height: 1.2; /* Espaçamento entre linhas */
 }
 
+/* Valores internos das kpis */
+
 .kpi-value {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 5px 0 0 0;
+  font-size: 24px; /* Fonte grande */
+  font-weight: bold; /* Negrito */
+  margin: 5px 0 0 0; /* Espaço acima */
 }
+
 
 .small {
   font-size: 12px;
@@ -165,12 +185,9 @@ html {
 /* Estilizando o gráfico */
 
 .bar-Chart {
-  display: block;
-  margin: 0% auto;
-  max-width: 500px;
-  height: 300px;
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  margin-top: 20px;
+  display: block; /* Elemento do tipo bloco */
+  margin: 0% auto; /* Centraliza horizontalmente */
+  max-width: 600px; /* Largura máxima */
+  height: 300px; /* Altura do gráfico */
+  margin-top: 20px; /* Espaço superior */
 }

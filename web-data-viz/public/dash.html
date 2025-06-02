@@ -4,19 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dash.css">
-    <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- importa a bliblioteca necessária para as kpi's -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <title>InkMind - Dashboard</title>
+    <link rel="stylesheet" href="./css/dash.css"> <!-- Importa o css correspondente -->
+    <link rel="shortcut icon" href="assets/imgs/lendo-um-livro.png" type="image/x-icon"> <!-- ícone da aba -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Importa a biblioteca do Chart.js -->
+
+    <title>InkMind - Dashboard</title> <!-- Título da aba -->
 
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- Corpo da página -->
+
+    <div class="container"> <!-- Container principal -->
 
         <!-- Barra lateral esquerda -->
 
@@ -27,11 +30,11 @@
             <a href="./index.html" class="botao_sair">Sair</a>
         </div>
 
-        <!-- Conteúdo central -->
+        <!-- Conteúdo central (gráfico) -->
 
         <div class="content">
             <div class="box-central">
-                <canvas class="bar-chart"></canvas>
+                <canvas class="bar-chart"></canvas> <!-- Elemento Canvas do gráfico -->
             </div>
         </div>
 
@@ -42,8 +45,8 @@
         <div class="kpis-container">
             <div class="kpi-card">
                 <div class="kpi-text">
-                    <p class="kpi-label">Curtidas(Diária)</p>
-                    <p class="kpi-value" id="valorCurtidas">20</p>
+                    <p class="kpi-label">Curtidas(Diária)</p> <!-- Título da métrica -->
+                    <p class="kpi-value" id="valorCurtidas">20</p> <!-- Valor dinâmico das curtidas -->
                 </div>
             </div>
 
@@ -62,45 +65,49 @@
 
 <script>
 
+    // Script de funcionamento do gráfico
+
     //  Criando o gráfico
 
-    const idUsuario = sessionStorage.getItem('idUsuario');
+    var idUsuario = sessionStorage.getItem('idUsuario'); // Pega o id do usuário salvo na sessionStorage
 
-    if (!idUsuario) {
+    if (!idUsuario) { // Se não estiver logado, vai para a tela de login
         alert("Usuário não logado!");
         window.location.href = "./index.html";
     }
 
     // Atualizar KPIs diárias (curtidas e comentários)
+
     fetch(`/dashboard/kpis-diarias/${idUsuario}`)
-        .then(res => res.json())
-        .then(data => {
+        .then(res => res.json()) // Converte as respostas para JSON
+        .then(data => { // Atualiza os valores da tela com os dados recebidos
             document.getElementById('valorCurtidas').textContent = data.curtidas;
             document.getElementById('valorComentarios').textContent = data.comentarios;
         })
-        .catch(err => console.error("Erro ao carregar KPIs diárias:", err));
+        .catch(err => console.error("Erro ao carregar KPIs diárias:", err)); // Trata os erros
 
-    // Atualizar gráfico com dados mensais
-    fetch(`/dashboard/dados-mensais/${idUsuario}`)
+
+    // Configuração e renderização do gráfico
+
+    fetch(`/dashboard/dados-mensais/${idUsuario}`) // Faz a requisição para buscar os dados
         .then(res => res.json())
         .then(data => {
-            const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
-            let postagensPorMes = Array(12).fill(0);
-            let curtidasPorMes = Array(12).fill(0);
+            var meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]; // Define os nomes dos meses ou labels
+            var postagensPorMes = Array(12).fill(0); // Arrays inicial com zero para cada mês
+            var curtidasPorMes = Array(12).fill(0);
 
-            data.postagens.forEach(p => {
+            data.postagens.forEach(p => { // Preenche as listas com os dados de cada mês
                 postagensPorMes[p.mes - 1] = p.total;
             });
             data.curtidas.forEach(c => {
                 curtidasPorMes[c.mes - 1] = c.total;
             });
 
-            var contexto = document.getElementsByClassName("bar-chart")[0];
-
+            var contexto = document.getElementsByClassName("bar-chart")[0]; // Seleciona o Canvas do gráfico/ tipo de gráfico
             new Chart(contexto, {
-                type: 'line',
+                type: 'line', // Tipo de gráfico (linha)
                 data: {
-                    labels: meses,
+                    labels: meses, // meses do eixo x (horizontal)
                     datasets: [
                         {
                             label: 'Postagens',
@@ -109,7 +116,7 @@
                             borderColor: '#40E0D0',
                             backgroundColor: 'rgba(64, 224, 208, 0.2)',
                             fill: false,
-                            tension: 0.4
+                            tension: 0.4 // Curvatura da linha
                         },
                         {
                             label: 'Curtidas',
@@ -125,7 +132,7 @@
                 options: {
                     plugins: {
                         legend: {
-                            display: true
+                            display: true // Exibe legenda
                         },
                         title: {
                             display: true,
@@ -137,14 +144,13 @@
                     },
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true // O eixo Y começa em 0
                         }
                     }
                 }
             });
         })
-        .catch(err => console.error("Erro ao carregar gráfico mensal:", err));
-
+        .catch(err => console.error("Erro ao carregar gráfico mensal:", err)); // Trata erros
 
 
 //     var contexto = document.getElementsByClassName("bar-chart")[0]; // pega o primeiro elemento com a classe "bar-chart"
